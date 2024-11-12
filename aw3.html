@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.awt.*;
+            class awt3 extends Frame{
+            public static void main(String[] args){
+            Frame f=new Frame();
+            Button b1=new Button("Click1");
+            Button b2=new Button("Click2");
+            Button b3=new Button("Click3");
+            Button b4=new Button("Click4");
+            Button b5=new Button("Click5");
+            f.setTitle("MyNotepad");
+            f.setBounds(50,100,400,300);
+            b1.setBounds(100,100,100,100);
+            b2.setBounds(250,100,100,100);
+            b3.setBounds(350,100,100,100);
+            b4.setBounds(450,100,100,50);
+            b5.setBounds(650,100,100,100);
+            f.add(b1,BorderLayout.NORTH);
+            f.add(b2,BorderLayout.SOUTH);
+            f.add(b3,BorderLayout.WEST);
+            f.add(b4,BorderLayout.CENTER);
+            f.add(b5,BorderLayout.EAST);
+            f.setVisible(true);
+            }
+            }
+            
+            OUTPUT
+            
+            
+<img src="awt3.jpg" alt="">             
+        </code>
+    </pre>
+</body>
+</html>

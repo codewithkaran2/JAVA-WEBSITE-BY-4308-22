@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.awt.*;
+            class awt13 extends Frame{
+            public static void main(String[] args){
+            Frame f=new Frame();
+            f.setLayout(null);
+            Checkbox ctrl2=new Checkbox("Male");
+            Checkbox ctrl3=new Checkbox("Female");
+            CheckboxGroup chg=new CheckboxGroup();
+            ctrl2.setCheckboxGroup(chg);
+            ctrl3.setCheckboxGroup(chg);
+            f.setBounds(100,100,400,400);
+            f.add(ctrl2);
+            f.add(ctrl3);
+            ctrl2.setBounds(100,100,200,200);
+            ctrl3.setBounds(100,250,200,200);
+            f.setTitle("MyNotepad");
+            f.setVisible(true);
+            }}
+            
+            OUTPUT
+            
+            
+<img src="awt13.jpg" alt="">                
+        </code>
+    </pre>
+</body>
+</html>
