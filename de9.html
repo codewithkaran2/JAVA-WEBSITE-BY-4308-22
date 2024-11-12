@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Code Snippet</title>
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        
+        code, pre {
+            font-family: 'Noto Sans Mono', monospace; 
+            background-color: #e8f7fa; 
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 10px;
+            display: block;
+            white-space: pre-wrap; 
+            line-height: 1.5; 
+            overflow-x: auto; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+     
+        pre {
+            margin: 20px 0;
+        }
+
+       
+        @media (max-width: 768px) {
+            code, pre {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <code>
+        <pre>
+import javax.swing.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+public class FrameSwitchExample {
+    public static void main(String[] args) {
+        JFrame frame1 = new JFrame("Frame 1");
+        JFrame frame2 = new JFrame("Frame 2");
+
+        frame1.setSize(300, 200);
+        frame2.setSize(300, 200);
+        frame1.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame2.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        frame1.setLayout(null);
+        frame2.setLayout(null);
+
+        JButton switchToFrame2 = new JButton("Go to Frame 2");
+        switchToFrame2.setBounds(80, 70, 140, 30);
+        frame1.add(switchToFrame2);
+
+        JButton switchToFrame1 = new JButton("Go to Frame 1");
+        switchToFrame1.setBounds(80, 70, 140, 30);
+        frame2.add(switchToFrame1);
+
+        switchToFrame2.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame1.setVisible(false);
+                frame2.setVisible(true);
+            }
+        });
+
+        switchToFrame1.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                frame2.setVisible(false);
+                frame1.setVisible(true);
+            }
+        });
+
+        frame1.setVisible(true);
+        frame2.setVisible(false); // Initially hide the second frame
+    }
+}
+</pre></code>
+</body>
+</html>

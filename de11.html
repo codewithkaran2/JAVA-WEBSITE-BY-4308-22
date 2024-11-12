@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Code Snippet</title>
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        
+        code, pre {
+            font-family: 'Noto Sans Mono', monospace; 
+            background-color: #e8f7fa; 
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 10px;
+            display: block;
+            white-space: pre-wrap; 
+            line-height: 1.5; 
+            overflow-x: auto; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+     
+        pre {
+            margin: 20px 0;
+        }
+
+       
+        @media (max-width: 768px) {
+            code, pre {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <pre><code>
+        import javax.swing.*;
+        import java.awt.event.ActionEvent;
+        import java.awt.event.ActionListener;
+        
+        public class MultiSelectListBoxExample {
+            public static void main(String[] args) {
+                JFrame frame = new JFrame("Multi-Select List Box Example");
+                frame.setSize(300, 300);
+                frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+                frame.setLayout(new FlowLayout());
+        
+                String[] items = {"Item 1", "Item 2", "Item 3", "Item 4", "Item 5"};
+                JList<String> itemList = new JList&lt&gt(items);
+                itemList.setSelectionMode(ListSelectionModel.MULTIPLE_INTERVAL_SELECTION);
+                JScrollPane listScroller = new JScrollPane(itemList);
+                listScroller.setPreferredSize(new Dimension(120, 100));
+        
+                JButton selectButton = new JButton("Show Selected");
+                JLabel selectedLabel = new JLabel("Selected items will appear here");
+        
+                selectButton.addActionListener(new ActionListener() {
+                    public void actionPerformed(ActionEvent e) {
+                        java.util.List<String> selectedItems = itemList.getSelectedValuesList();
+                        selectedLabel.setText("Selected: " + selectedItems);
+                    }
+                });
+        
+                frame.add(listScroller);
+                frame.add(selectButton);
+                frame.add(selectedLabel);
+                frame.setVisible(true);
+            }
+        }
+            </code></pre>
+            </body>
+            </html>
+            

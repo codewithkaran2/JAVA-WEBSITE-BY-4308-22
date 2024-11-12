@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Code Snippet</title>
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        
+        code, pre {
+            font-family: 'Noto Sans Mono', monospace; 
+            background-color: #e8f7fa; 
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 10px;
+            display: block;
+            white-space: pre-wrap; 
+            line-height: 1.5; 
+            overflow-x: auto; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+     
+        pre {
+            margin: 20px 0;
+        }
+
+       
+        @media (max-width: 768px) {
+            code, pre {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <pre><code>
+        import java.util.HashSet;
+        import java.util.Scanner;
+        import java.util.Set;
+        
+        class DuplicateNumberException extends Exception {
+            public DuplicateNumberException(String message) {
+                super(message);
+            }
+        }
+        
+        public class DuplicateNumberCheck {
+            public static void main(String[] args) {
+                Scanner scanner = new Scanner(System.in);
+                Set<Integer> numberSet = new HashSet&lt&gt();
+        
+                System.out.println("Enter a list of integers (type 'done' to finish):");
+        
+                while (true) {
+                    String input = scanner.nextLine();
+                    if (input.equalsIgnoreCase("done")) {
+                        break;
+                    }
+                    try {
+                        int number = Integer.parseInt(input);
+                        if (numberSet.contains(number)) {
+                            throw new DuplicateNumberException("Duplicate number found: " + number);
+                        }
+                        numberSet.add(number);
+                    } catch (NumberFormatException e) {
+                        System.out.println("Invalid input. Please enter an integer or 'done' to finish.");
+                    } catch (DuplicateNumberException e) {
+                        System.out.println("Exception: " + e.getMessage());
+                    }
+                }
+        
+                System.out.println("You have entered the following unique numbers: " + numberSet);
+                scanner.close();
+            }
+        }
+    </code></pre>
+    <h4>Output</h4><br>
+    Enter a list of integers (type 'done' to finish):<br>
+5<br>
+10<br>
+15<br>
+5<br>
+Exception: Duplicate number found: 5<br>
+20<br>
+done<br>
+You have entered the following unique numbers: [10, 20, 5, 15]
+</body>
+</html>
+      

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Java Code Snippet</title>
+
+   
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: 'Noto Sans', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            padding: 20px;
+        }
+
+        
+        code, pre {
+            font-family: 'Noto Sans Mono', monospace; 
+            background-color: #e8f7fa; 
+            color: #2c3e50;
+            padding: 15px;
+            border-radius: 10px;
+            display: block;
+            white-space: pre-wrap; 
+            line-height: 1.5; 
+            overflow-x: auto; 
+            box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1); 
+        }
+
+     
+        pre {
+            margin: 20px 0;
+        }
+
+       
+        @media (max-width: 768px) {
+            code, pre {
+                font-size: 0.9rem;
+                padding: 12px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <pre><code>
+        public class MiddlePointChecker {
+            public static void main(String[] args) {
+                int num1 = 3;
+                int num2 = 5;
+                int num3 = 4;
+        
+                boolean isMiddlePoint = isMiddlePoint(num1, num2, num3);
+                System.out.println("Is one number the middle point between the other two? " + isMiddlePoint);
+            }
+        
+            public static boolean isMiddlePoint(int a, int b, int c) {
+                return (a + c) / 2.0 == b || (a + b) / 2.0 == c || (b + c) / 2.0 == a;
+            }
+        }
+</code>
+</pre>
+<h4>Output</h4><br>
+<pre>
+Is one number the middle point between the other two? true
+</pre>  
+</body>
+</html>      
