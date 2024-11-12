@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Person {
+                private String name;
+                private int age;
+                private String country;
+            
+                // Getter methods
+                public String getName() {
+                    return name;
+                }
+            
+                public int getAge() {
+                    return age;
+                }
+            
+                public String getCountry() {
+                    return country;
+                }
+            
+                // Setter methods
+                public void setName(String name) {
+                    this.name = name;
+                }
+            
+                public void setAge(int age) {
+                    this.age = age;
+                }
+            
+                public void setCountry(String country) {
+                    this.country = country;
+                }
+            }
+            
+            class T {
+                public static void main(String[] args) {
+                    Person person = new Person();
+            
+                    // Set the person's details
+                    person.setName("John Doe");
+                    person.setAge(30);
+                    person.setCountry("USA");
+            
+                    // Get and print the person's details
+                    System.out.println("Name: " + person.getName());
+                    System.out.println("Age: " + person.getAge());
+                    System.out.println("Country: " + person.getCountry());
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Name: John Doe
+            Age: 30
+            Country: USA
+            
+        </code>
+    </pre>
+</body>
+</html>

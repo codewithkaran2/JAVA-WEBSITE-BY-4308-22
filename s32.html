@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str32 {
+                public static String insertString(String originalString, String stringToInsert, int index) {
+                    if (index &lt; 0 || index > originalString.length()) {
+                        return originalString;
+                    }
+                    return originalString.substring(0, index) + stringToInsert + originalString.substring(index);
+                }
+            
+                public static void main(String[] args) {
+                    String originalStr = "Hello World!";
+                    String strToInsert = " Beautiful";
+                    int index = 6;
+                    String modifiedStr = insertString(originalStr, strToInsert, index);
+            
+                    System.out.println("Original String: " + originalStr);
+                    System.out.println("Modified String: " + modifiedStr);
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Original String: Hello World!
+            Modified String: Hello  BeautifulWorld!
+        </code>
+    </pre>
+</body>
+</html>

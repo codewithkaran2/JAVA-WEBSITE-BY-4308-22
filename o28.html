@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Rectangle {
+                private double length;
+                private double width;
+            
+                // Getter methods
+                public double getLength() {
+                    return length;
+                }
+            
+                public double getWidth() {
+                    return width;
+                }
+            
+                // Setter methods
+                public void setLength(double length) {
+                    this.length = length;
+                }
+            
+                public void setWidth(double width) {
+                    this.width = width;
+                }
+            
+                // Additional methods to calculate area and perimeter
+                public double calculateArea() {
+                    return length * width;
+                }
+            
+                public double calculatePerimeter() {
+                    return 2 * (length + width);
+                }
+            }
+            
+            class V {
+                public static void main(String[] args) {
+                    Rectangle rectangle = new Rectangle();
+            
+                    // Set the rectangle's dimensions
+                    rectangle.setLength(5.0);
+                    rectangle.setWidth(3.0);
+            
+                    // Get and print the rectangle's dimensions
+                    System.out.println("Length: " + rectangle.getLength());
+                    System.out.println("Width: " + rectangle.getWidth());
+            
+                    // Calculate and print the rectangle's area and perimeter
+                    System.out.println("Area: " + rectangle.calculateArea());
+                    System.out.println("Perimeter: " + rectangle.calculatePerimeter());
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Length: 5.0
+            Width: 3.0
+            Area: 15.0
+            Perimeter: 16.0
+            
+        </code>
+    </pre>
+</body>
+</html>

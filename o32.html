@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+
+            class Student {
+                private int student_id;
+                private String student_name;
+                private double[] grades;
+            
+                // Constructor to initialize the grades array
+                public Student() {
+                    this.grades = new double[0];
+                }
+            
+                // Getter methods
+                public int getStudentId() {
+                    return student_id;
+                }
+            
+                public String getStudentName() {
+                    return student_name;
+                }
+            
+                public double[] getGrades() {
+                    return grades;
+                }
+            
+                // Setter methods
+                public void setStudentId(int student_id) {
+                    this.student_id = student_id;
+                }
+            
+                public void setStudentName(String student_name) {
+                    this.student_name = student_name;
+                }
+            
+                // Method to add a grade with validation
+                public void addGrade(double grade) {
+                    if (grade < 0 || grade > 100) {
+                        System.out.println("Invalid grade. Grade must be between 0 and 100.");
+                        return;
+                    }
+            
+                    // Resize the grades array to accommodate the new grade
+                    double[] newGrades = new double[this.grades.length + 1];
+                    for (int i = 0; i < this.grades.length; i++) {
+                        newGrades[i] = this.grades[i];
+                    }
+                    newGrades[this.grades.length] = grade;
+                    this.grades = newGrades;
+                }
+            }
+            
+            class Z{
+                public static void main(String[] args) {
+                    Student student = new Student();
+            
+                    // Set the student's details
+                    student.setStudentId(123);
+                    student.setStudentName("John Doe");
+            
+                    // Add some grades
+                    student.addGrade(90);
+                    student.addGrade(80);
+                    student.addGrade(95);
+            
+                    // Try to add an invalid grade
+                    student.addGrade(150);
+            
+                    // Get and print the student's details
+                    System.out.println("Student ID: " + student.getStudentId());
+                    System.out.println("Student Name: " + student.getStudentName());
+                    for (double grade : student.getGrades()) {
+                        System.out.print(grade + " ");
+                    }
+                    System.out.println();
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Invalid grade. Grade must be between 0 and 100.
+            Student ID: 123
+            Student Name: John Doe
+            90.0 80.0 95.0
+        </code>
+    </pre>
+</body>
+</html>

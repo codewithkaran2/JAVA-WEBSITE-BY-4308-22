@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+
+            class Employee {
+                private int employee_id;
+                private String employee_name;
+                private double employee_salary;
+            
+                // Getter methods
+                public int getEmployeeId() {
+                    return employee_id;
+                }
+            
+                public String getEmployeeName() {
+                    return employee_name;
+                }
+            
+                public String getEmployeeSalary() {
+                    return String.format("$%,.2f", employee_salary);
+                }
+            
+                // Setter methods
+                public void setEmployeeId(int employee_id) {
+                    this.employee_id = employee_id;
+                }
+            
+                public void setEmployeeName(String employee_name) {
+                    this.employee_name = employee_name;
+                }
+            
+                public void setEmployeeSalary(double employee_salary) {
+                    this.employee_salary = employee_salary;
+                }
+            }
+            
+            class W{
+                public static void main(String[] args) {
+                    Employee employee = new Employee();
+            
+                    // Set the employee's details
+                    employee.setEmployeeId(123);
+                    employee.setEmployeeName("John Doe");
+                    employee.setEmployeeSalary(50000.0);
+            
+                    // Get and print the employee's details
+                    System.out.println("Employee ID: " + employee.getEmployeeId());
+                    System.out.println("Employee Name: " + employee.getEmployeeName());
+                    System.out.println("Employee Salary: " + employee.getEmployeeSalary());
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Employee ID: 123
+            Employee Name: John Doe
+            Employee Salary: $50,000.00 
+        </code>
+    </pre>
+</body>
+</html>

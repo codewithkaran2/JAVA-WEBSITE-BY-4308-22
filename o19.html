@@ -1,0 +1,273 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            import java.util.ArrayList;
+            import java.util.List;
+            import java.util.Scanner;
+            
+            class Flight {
+                private String flightNumber;
+                private String destination;
+                private boolean isAvailable;
+            
+                public Flight(String flightNumber, String destination, boolean isAvailable) {
+                    this.flightNumber = flightNumber;
+                    this.destination = destination;
+                    this.isAvailable = isAvailable;
+                }
+            
+                public String getFlightNumber() {
+                    return flightNumber;
+                }
+            
+                public String getDestination() {
+                    return destination;
+                }
+            
+                public boolean isAvailable() {
+                    return isAvailable;
+                }
+            
+                public void bookFlight() {
+                    if (isAvailable) {
+                        isAvailable = false;
+                        System.out.println("Flight " + flightNumber + " to " + destination + " booked successfully.");
+                    } else {
+                        System.out.println("Flight " + flightNumber + " to " + destination + " is not available.");
+                    }
+                }
+            
+                public void cancelFlight() {
+                    if (!isAvailable) {
+                        isAvailable = true;
+                        System.out.println("Flight " + flightNumber + " to " + destination + " canceled successfully.");
+                    } else {
+                        System.out.println("Flight " + flightNumber + " to " + destination + " is not booked.");
+                    }
+                }
+            
+                @Override
+                public String toString() {
+                    return "Flight{Flight Number='" + flightNumber + "', Destination='" + destination + "', Available=" + isAvailable + "}";
+                }
+            }
+            
+            class Hotel {
+                private String name;
+                private String location;
+                private boolean isAvailable;
+            
+                public Hotel(String name, String location, boolean isAvailable) {
+                    this.name = name;
+                    this.location = location;
+                    this.isAvailable = isAvailable;
+                }
+            
+                public String getName() {
+                    return name;
+                }
+            
+                public String getLocation() {
+                    return location;
+                }
+            
+                public boolean isAvailable() {
+                    return isAvailable;
+                }
+            
+                public void bookHotel() {
+                    if (isAvailable) {
+                        isAvailable = false;
+                        System.out.println("Hotel " + name + " in " + location + " booked successfully.");
+                    } else {
+                        System.out.println("Hotel " + name + " in " + location + " is not available.");
+                    }
+                }
+            
+                public void cancelHotel() {
+                    if (!isAvailable) {
+                        isAvailable = true;
+                        System.out.println("Hotel " + name + " in " + location + " canceled successfully.");
+                    } else {
+                        System.out.println("Hotel " + name + " in " + location + " is not booked.");
+                    }
+                }
+            
+                @Override
+                public String toString() {
+                    return "Hotel{Name='" + name + "', Location='" + location + "', Available=" + isAvailable + "}";
+                }
+            }
+            
+            class ReservationSystem {
+                private List<Flight> flights;
+                private List<Hotel> hotels;
+            
+                public ReservationSystem() {
+                    flights = new ArrayList<>();
+                    hotels = new ArrayList<>();
+                }
+            
+                // Method to add flights
+                public void addFlight(Flight flight) {
+                    flights.add(flight);
+                }
+            
+                // Method to add hotels
+                public void addHotel(Hotel hotel) {
+                    hotels.add(hotel);
+                }
+            
+                // Method to search for flights
+                public void searchFlights(String destination) {
+                    System.out.println("Searching for flights to " + destination + ":");
+                    boolean found = false;
+                    for (Flight flight : flights) {
+                        if (flight.getDestination().equalsIgnoreCase(destination)) {
+                            System.out.println(flight);
+                            found = true;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("No flights found to " + destination + ".");
+                    }
+                }
+            
+                // Method to search for hotels
+                public void searchHotels(String location) {
+                    System.out.println("Searching for hotels in " + location + ":");
+                    boolean found = false;
+                    for (Hotel hotel : hotels) {
+                        if (hotel.getLocation().equalsIgnoreCase(location)) {
+                            System.out.println(hotel);
+                            found = true;
+                        }
+                    }
+                    if (!found) {
+                        System.out.println("No hotels found in " + location + ".");
+                    }
+                }
+            
+                // Method to book a flight
+                public void bookFlight(String flightNumber) {
+                    for (Flight flight : flights) {
+                        if (flight.getFlightNumber().equalsIgnoreCase(flightNumber)) {
+                            flight.bookFlight();
+                            return;
+                        }
+                    }
+                    System.out.println("Flight " + flightNumber + " not found.");
+                }
+            
+                // Method to book a hotel
+                public void bookHotel(String hotelName) {
+                    for (Hotel hotel : hotels) {
+                        if (hotel.getName().equalsIgnoreCase(hotelName)) {
+                            hotel.bookHotel();
+                            return;
+                        }
+                    }
+                    System.out.println("Hotel " + hotelName + " not found.");
+                }
+            
+                // Method to cancel a flight
+                public void cancelFlight(String flightNumber) {
+                    for (Flight flight : flights) {
+                        if (flight.getFlightNumber().equalsIgnoreCase(flightNumber)) {
+                            flight.cancelFlight();
+                            return;
+                        }
+                    }
+                    System.out.println("Flight " + flightNumber + " not found.");
+                }
+            
+                // Method to cancel a hotel reservation
+                public void cancelHotel(String hotelName) {
+                    for (Hotel hotel : hotels) {
+                        if (hotel.getName().equalsIgnoreCase(hotelName)) {
+                            hotel.cancelHotel();
+                            return;
+                        }
+                    }
+                    System.out.println("Hotel " + hotelName + " not found.");
+                }
+            }
+            
+            public class TravelReservationSystem {
+                public static void main(String[] args) {
+                    ReservationSystem reservationSystem = new ReservationSystem();
+            
+                    // Add sample flights
+                    reservationSystem.addFlight(new Flight("AA123", "New York", true));
+                    reservationSystem.addFlight(new Flight("BA456", "Los Angeles", true));
+                    reservationSystem.addFlight(new Flight("DL789", "New York", false));
+            
+                    // Add sample hotels
+                    reservationSystem.addHotel(new Hotel("Hilton", "New York", true));
+                    reservationSystem.addHotel(new Hotel("Marriott", "Los Angeles", true));
+                    reservationSystem.addHotel(new Hotel("Holiday Inn", "New York", false));
+            
+                    Scanner scanner = new Scanner(System.in);
+                    String action;
+            
+                    do {
+                        System.out.println("\nEnter an action (search flights, search hotels, book flight, book hotel, cancel flight, cancel hotel, exit):");
+                        action = scanner.nextLine();
+            
+                        switch (action.toLowerCase()) {
+                            case "search flights":
+                                System.out.print("Enter destination: ");
+                                String flightDestination = scanner.nextLine();
+                                reservationSystem.searchFlights(flightDestination);
+                                break;
+                            case "search hotels":
+                                System.out.print("Enter location: ");
+                                String hotelLocation = scanner.nextLine();
+                                reservationSystem.searchHotels(hotelLocation);
+                                break;
+                            case "book flight":
+                                System.out.print("Enter flight number: ");
+                                String flightNumber = scanner.nextLine();
+                                reservationSystem.bookFlight(flightNumber);
+                                break;
+                            case "book hotel":
+                                System.out.print("Enter hotel name: ");
+                                String hotelName = scanner.nextLine();
+                                reservationSystem.bookHotel(hotelName);
+                                break;
+                            case "cancel flight":
+                                System.out.print("Enter flight number: ");
+                                String cancelFlightNumber = scanner.nextLine();
+                                reservationSystem.cancelFlight(cancelFlightNumber);
+                                break;
+                            case "cancel hotel":
+                                System.out.print("Enter hotel name: ");
+                                String cancelHotelName = scanner.nextLine();
+                                reservationSystem.cancelHotel(cancelHotelName);
+                                break;
+                            case "exit":
+                                System.out.println("Exiting the reservation system.");
+                                break;
+                            default:
+                                System.out.println("Invalid action. Please try again.");
+                                break;
+                        }
+                    } while (!action.equalsIgnoreCase("exit"));
+            
+                    scanner.close();
+                }
+            }
+            
+            
+        </code>
+    </pre>
+</body>
+</html>

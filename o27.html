@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+
+            class BankAccount {
+                private long accountNumber;
+                private double balance;
+            
+                // Getter methods
+                public long getAccountNumber() {
+                    return accountNumber;
+                }
+            
+                public double getBalance() {
+                    return balance;
+                }
+            
+                // Setter methods
+                public void setAccountNumber(long accountNumber) {
+                    this.accountNumber = accountNumber;
+                }
+            
+                public void setBalance(double balance) {
+                    this.balance = balance;
+                }
+            
+                // Additional methods to deposit and withdraw money
+                public void deposit(double amount) {
+                    if (amount > 0) {
+                        balance += amount;
+                        System.out.println("Deposited: " + amount);
+                    } else {
+                        System.out.println("Invalid deposit amount");
+                    }
+                }
+            
+                public void withdraw(double amount) {
+                    if (amount > 0 && amount <= balance) {
+                        balance -= amount;
+                        System.out.println("Withdrawn: " + amount);
+                    } else {
+                        System.out.println("Invalid withdrawal amount");
+                    }
+                }
+            }
+            
+            class U {
+                public static void main(String[] args) {
+                    BankAccount account = new BankAccount();
+            
+                    // Set the account details
+                    account.setAccountNumber(123456789);
+                    account.setBalance(1000.0);
+            
+                    // Get and print the account details
+                    System.out.println("Account Number: " + account.getAccountNumber());
+                    System.out.println("Initial Balance: " + account.getBalance());
+            
+                    // Deposit money
+                    account.deposit(500.0);
+                    System.out.println("Balance after deposit: " + account.getBalance());
+            
+                    // Withdraw money
+                    account.withdraw(200.0);
+                    System.out.println("Balance after withdrawal: " + account.getBalance());
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Account Number: 123456789
+            Initial Balance: 1000.0
+            Deposited: 500.0
+            Balance after deposit: 1500.0
+            Withdrawn: 200.0
+            Balance after withdrawal: 1300.0
+        </code>
+    </pre>
+</body>
+</html>

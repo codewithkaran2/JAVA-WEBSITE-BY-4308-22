@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Employee {
+                private String name;
+                private int age;
+            
+                // Parameterized constructor
+                public Employee(String name,int age) {
+                    this.name =name;
+                    this.age = age;
+                }
+                public Employee(Employee t) {
+                    name =t.name;
+                    age = t.age;
+                }
+            
+            
+                public void displayEmployeeInfo() {
+                    System.out.println("Name: " + name);
+                    System.out.println("Age: " + age);
+                }
+            }
+            class P{
+                public static void main(String[] args) {
+                    Employee employee = new Employee("ABC",20);
+                    employee.displayEmployeeInfo();
+                    Employee obj=new Employee(employee);
+                    obj.displayEmployeeInfo();    
+            }
+            }
+            
+            OUTPUT
+            
+            
+            Name: ABC
+            Age: 20
+            Name: ABC
+            Age: 20
+            
+        </code>
+    </pre>
+</body>
+</html>

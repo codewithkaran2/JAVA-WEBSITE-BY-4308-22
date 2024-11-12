@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str31 {
+                public static Character getCharacter(String inputString, int index) {
+                        if (index &lt; inputString.length()) {
+                            return inputString.charAt(index);
+                        } else {
+                            return null;
+                        }
+                    }
+                
+                    public static void main(String[] args) {
+                        String inputStr = "Hello, World!";
+                        int index = 4;
+                        Character charAtIndex = getCharacter(inputStr, index);
+                
+                        if (charAtIndex != null) {
+                            System.out.println("The character at index " + index + " is: " + charAtIndex);
+                        } else {
+                            System.out.println("Index " + index + " is out of range for the string: " + inputStr);
+                        }
+                    }
+                }
+                
+                OUTPUT
+                
+                
+                The character at index 4 is: o
+        </code>
+    </pre>
+</body>
+</html>

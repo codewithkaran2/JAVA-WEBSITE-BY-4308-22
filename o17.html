@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Movie {
+                private String title;
+                private String director;
+                private String[] actors;
+                private String[] reviews;
+            
+                public Movie(String title, String director, String[] actors) {
+                    this.title = title;
+                    this.director = director;
+                    this.actors = actors;
+                    this.reviews = new String[0];
+                }
+            
+                public String getTitle() {
+                    return title;
+                }
+            
+                public String getDirector() {
+                    return director;
+                }
+            
+                public String[] getActors() {
+                    return actors;
+                }
+            
+                public String[] getReviews() {
+                    return reviews;
+                }
+            
+                public void addReview(String review) {
+                    String[] newReviews = new String[reviews.length + 1];
+                    for (int i = 0; i < reviews.length; i++) {
+                        newReviews[i] = reviews[i];
+                    }
+                    newReviews[reviews.length] = review;
+                    reviews = newReviews;
+                }
+            
+                public void printMovieDetails() {
+                    System.out.println("Title: " + title);
+                    System.out.println("Director: " + director);
+                    System.out.println("Actors: ");
+                    for (String actor : actors) {
+                        System.out.println(actor);
+                    }
+                    System.out.println("Reviews:");
+                    for (String review : reviews) {
+                        System.out.println(review);
+                    }
+                }
+            }
+            
+            class K{
+                public static void main(String[] args) {
+                    String[] actors = {"Tom Hanks", "Meg Ryan", "Ross Malinger"};
+            
+                    Movie movie = new Movie("Sleepless in Seattle", "Nora Ephron", actors);
+            
+                    movie.addReview("A romantic comedy classic!");
+                    movie.addReview("Tom Hanks and Meg Ryan have great chemistry.");
+                    movie.addReview("A feel-good movie that will leave you smiling.");
+            
+                    movie.printMovieDetails();
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Title: Sleepless in Seattle
+            Director: Nora Ephron
+            Actors:
+            Tom Hanks
+            Meg Ryan
+            Ross Malinger
+            Reviews:
+            A romantic comedy classic!
+            Tom Hanks and Meg Ryan have great chemistry.
+            A feel-good movie that will leave you smiling.
+            
+        </code>
+    </pre>
+</body>
+</html>

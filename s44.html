@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str44 {
+                public static void main(String[] args) {
+                    System.out.print("Enter the first string: ");
+                    String str1 = System.console().readLine();
+            
+                    System.out.print("Enter the second string: ");
+                    String str2 = System.console().readLine();
+            
+                    boolean contains = str1.contains(str2);
+            
+                    if (contains) {
+                        System.out.println("The first string contains the second string.");
+                    } else {
+                        System.out.println("The first string does not contain the second string.");
+                    }
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Enter the first string: mad
+            Enter the second string: abc
+            The first string does not contain the second string.
+        </code>
+    </pre>
+</body>
+</html>

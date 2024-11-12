@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str22 {
+                public static void main(String[] args) {
+                    String str = "hello world";
+                    char maxChar = getMaxChar(str);
+                    char minChar = getMinChar(str);
+            
+                    System.out.println("Maximum occurring character: " + maxChar);
+                    System.out.println("Minimum occurring character: " + minChar);
+                }
+            
+                public static char getMaxChar(String str) {
+                    int[] freq = new int[256]; 
+                    for (int i = 0; i &lt; str.length(); i++) {
+                        freq[str.charAt(i)]++;
+                    }
+            
+                    int maxFreq = 0;
+                    char maxChar = ' ';
+            
+                    for (int i = 0; i &lt; str.length(); i++) {
+                        if (freq[str.charAt(i)] > maxFreq) {
+                            maxFreq = freq[str.charAt(i)];
+                            maxChar = str.charAt(i);
+                        }
+                    }
+            
+                    return maxChar;
+                }
+            
+                public static char getMinChar(String str) {
+                    int[] freq = new int[256]; 
+            
+                    for (int i = 0; i &lt; str.length(); i++) {
+                        freq[str.charAt(i)]++;
+                    }
+            
+                    int minFreq = freq[str.charAt(0)];
+                    char minChar = str.charAt(0);
+            
+                    for (int i = 1; i &lt; str.length(); i++) {
+                        if (freq[str.charAt(i)] > 0 && freq[str.charAt(i)] &lt; minFreq) {
+                            minFreq = freq[str.charAt(i)];
+                            minChar = str.charAt(i);
+                        }
+                    }
+            
+                    return minChar;
+                }
+            }
+            
+            OUTPUT
+            
+        </code>
+        </pre>  
+</body>
+</html>

@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            package p4;
+
+            public class Pkg8{
+            protected int age;
+            protected String name;
+            void display(int age,String name){
+            System.out.println("Age is : "+age+"   "+"Name is : "+name);
+            }
+            }
+            
+            class G extends Pkg8{
+            public static void main(String[] args){
+            G obj=new G();
+            obj.display(20,"Madhu");
+            }
+            }
+            
+            OUTPUT
+            
+            
+            G:\Packages>javac -d G:\Packages Pkg8.java
+            
+            G:\Packages>java p4.G
+            Age is : 20   Name is : Madhu
+            
+        </code>
+    </pre>
+</body>
+</html>

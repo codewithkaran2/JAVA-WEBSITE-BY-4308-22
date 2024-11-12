@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str48 {
+                public static void main(String[] args) {
+                    System.out.print("Enter a string: ");
+                    String str = System.console().readLine();
+            
+                    char firstNonRepeatedChar = findFirstNonRepeatedCharacter(str);
+            
+                    if (firstNonRepeatedChar != '\0') {
+                        System.out.println("The first non-repeated character is: " + firstNonRepeatedChar);
+                    } else {
+                        System.out.println("There is no non-repeated character in the string.");
+                    }
+                }
+            
+                public static char findFirstNonRepeatedCharacter(String str) {
+                    int[] count = new int[256]; // assuming ASCII characters
+            
+                    for (int i = 0; i &lt; str.length(); i++) {
+                        count[str.charAt(i)]++;
+                    }
+            
+                    for (int i = 0; i &lt; str.length(); i++) {
+                        if (count[str.charAt(i)] == 1) {
+                            return str.charAt(i);
+                        }
+                    }
+            
+                    return '\0'; // return null character if no non-repeated character is found
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Enter a string: aabbc
+            The first non-repeated character is: c
+        </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str27 {
+                public static void main(String[] args) {
+                    String str = "This is a sample string";
+                    findLargestAndSmallestWords(str);
+                }
+            
+                public static void findLargestAndSmallestWords(String str) {
+                    String[] words = str.split("\\s+"); 
+                    String largestWord = "";
+                    String smallestWord = words[0]; 
+                    for (String word : words) {
+                        if (word.length() > largestWord.length()) {
+                            largestWord = word;
+                        }
+                        if (word.length() &lt; smallestWord.length()) {
+                            smallestWord = word;
+                        }
+                    }
+            
+                    System.out.println("Largest word: " + largestWord);
+                    System.out.println("Smallest word: " + smallestWord);
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Largest word: sample
+            Smallest word: a 
+        </code>
+    </pre>
+</body>
+</html>

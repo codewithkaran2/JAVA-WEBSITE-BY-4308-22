@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        |<code>
+            class Str23 {
+                public static void main(String[] args) {
+                    String str = "hello world";
+                    String reversedStr = reverseString(str);
+            
+                    System.out.println("Original string: " + str);
+                    System.out.println("Reversed string: " + reversedStr);
+                }
+            
+                public static String reverseString(String str) {
+                    String reversedStr = "";
+            
+                    for (int i = str.length() - 1; i >= 0; i--) {
+                        reversedStr += str.charAt(i);
+                    }
+            
+                    return reversedStr;
+                }
+            }
+            
+            OUTPUT
+            
+        </code>
+    </pre>
+</body>
+</html>

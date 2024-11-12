@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Student {
+                private int rollNo;
+                private String name;
+                private String studentClass;
+            
+                private static int rollNoCounter = 1;
+            
+                public Student(String name , String studentClass) {
+                    this.rollNo = rollNoCounter++;
+                    this.name = name;
+                    this.studentClass = studentClass;
+                }
+            
+                public int getRollNo() {
+                    return rollNo;
+                }
+            
+                public String getName() {
+                    return name;
+                }
+            
+                public String getStudentClass() {
+                    return studentClass;
+                }
+            }
+            
+            class Q {
+                public static void main(String[] args) {
+                    Student[] students = new Student[10];
+            
+                    for (int i = 0; i &lt; 10; i++) {
+                        System.out.println("Enter name and class for student " + (i + 1));
+                        String name = System.console().readLine();
+                        String studentClass = System.console().readLine();
+                        students[i] = new Student(name, studentClass);
+                    }
+            
+                    for (Student student : students) {
+                        System.out.println("Roll No: " + student.getRollNo() + ", Name: " + student.getName() + ", Class: " + student.getStudentClass());
+                    }
+                }
+            }
+            
+            OUTPUT
+            
+            
+            
+            
+        </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str43 {
+                public static void main(String[] args) {
+                    System.out.print("Enter a string: ");
+                    String originalString = System.console().readLine();
+            
+                    System.out.print("Enter the first character to swap: ");
+                    char char1 = System.console().readLine().charAt(0);
+            
+                    System.out.print("Enter the second character to swap: ");
+                    char char2 = System.console().readLine().charAt(0);
+            
+                    System.out.println("Original string: " + originalString);
+            
+                    String swappedString = swapCharacters(originalString, char1, char2);
+            
+                    System.out.println("Swapped string: " + swappedString);
+                }
+            
+                public static String swapCharacters(String originalString, char char1, char char2) {
+                    char[] charArray = originalString.toCharArray();
+            
+                    for (int i = 0; i &lt; charArray.length; i++) {
+                        if (charArray[i] == char1) {
+                            charArray[i] = char2;
+                        } else if (charArray[i] == char2) {
+                            charArray[i] = char1;
+                        }
+                    }
+            
+                    return new String(charArray);
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Enter a string: madhu heena muskan
+            Enter the first character to swap: a
+            Enter the second character to swap: d
+            Original string: madhu heena muskan
+            Swapped string: mdahu heend muskdn
+        </code>
+    </pre>
+</body>
+</html>

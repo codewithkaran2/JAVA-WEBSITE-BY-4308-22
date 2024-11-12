@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str39{
+                public static void main(String[] args) {
+                    String str = "Hello World, this is a test";
+                    char replacementChar = '-'; // Replace spaces with hyphens
+                    String replacedStr = str.replaceAll("\\s", String.valueOf(replacementChar));
+                    System.out.println("Original string: " + str);
+                    System.out.println("String with spaces replaced: " + replacedStr);
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Original string: Hello World, this is a test
+            String with spaces replaced: Hello-World,-this-is-a-test
+        </code>
+    </pre>
+</body>
+</html>

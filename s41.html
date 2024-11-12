@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str41 {
+                public static void main(String[] args) {
+                    String originalString = "Hello World, this is a test";
+                    int numSubstrings = 4;
+            
+                    // Calculate the length of each substring
+                    int substringLength = originalString.length() / numSubstrings;
+            
+                    // Initialize an empty list to store the substrings
+                    String[] substrings = new String[numSubstrings];
+            
+                    // Loop through the original string and split it into substrings
+                    int startIndex = 0;
+                    for (int i = 0; i &lt; numSubstrings; i++) {
+                        int endIndex = startIndex + substringLength;
+                        if (i == numSubstrings - 1) {
+                            endIndex = originalString.length();
+                        }
+                        substrings[i] = originalString.substring(startIndex, endIndex);
+                        startIndex = endIndex;
+                    }
+            
+                    // Print the resulting substrings
+                    for (int i = 0; i &lt; substrings.length; i++) {
+                        System.out.println("Sub-string " + (i + 1) + ": " + substrings[i]);
+                    }
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Sub-string 1: Hello
+            Sub-string 2: World,
+            Sub-string 3:  this
+            Sub-string 4: is a test
+        </code>
+    </pre>
+</body>
+</html>

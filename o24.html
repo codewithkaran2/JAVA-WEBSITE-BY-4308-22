@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Shape {
+                public double calculateArea(double radius) {
+                    // Calculate area of circle
+                    return Math.PI * radius * radius;
+                }
+            
+                public double calculateArea(double length, double width) {
+                    // Calculate area of rectangle
+                    return length * width;
+                }
+            }
+            class R {
+                public static void main(String[] args) {
+                    Shape shape = new Shape();
+            
+                    // Calculate area of circle
+                    double circleRadius = 5.0;
+                    double circleArea = shape.calculateArea(circleRadius);
+                    System.out.println("Area of circle with radius " + circleRadius + ": " + circleArea);
+            
+                    // Calculate area of rectangle
+                    double rectangleLength = 4.0;
+                    double rectangleWidth = 6.0;
+                    double rectangleArea = shape.calculateArea(rectangleLength, rectangleWidth);
+                    System.out.println("Area of rectangle with length " + rectangleLength + " and width " + rectangleWidth + ": " + rectangleArea);
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Area of circle with radius 5.0: 78.53981633974483
+            Area of rectangle with length 4.0 and width 6.0: 24.0
+            
+        </code>
+    </pre>
+</body>
+</html>

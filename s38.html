@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Str38{
+                public static void main(String[] args) {
+                    String str = "Hello World, this is a test";
+                    String swappedCase = "";
+            
+                    for (int i = 0; i &lt; str.length(); i++) {
+                        char c = str.charAt(i);
+                        if (Character.isLowerCase(c)) {
+                            swappedCase += Character.toUpperCase(c);
+                        } else if (Character.isUpperCase(c)) {
+                            swappedCase += Character.toLowerCase(c);
+                        } else {
+                            swappedCase += c;
+                        }
+                    }
+            
+                    System.out.println("Original string: " + str);
+                    System.out.println("String with swapped case: " + swappedCase);
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Original string: Hello World, this is a test
+            String with swapped case: hELLO wORLD, THIS IS A TEST
+        </code>
+    </pre>
+</body>
+</html>
