@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Th9 extends Thread {
+                public void run() {
+                    System.out.println("Thread : "+Thread.currentThread().getName());
+                }
+                public static void main(String[] args) {
+                    Th9 t1 = new Th9();
+                    Th9 t2 = new Th9();
+                    Th9 t3 = new Th9();
+                    t1.start();
+                    t2.start();
+                    t3.start();    
+            }}
+            
+            OUTPUT
+            
+            
+            G:\COLLEGE WORK\ProjectPrograms\MultiThreading>javac Th9.java
+            G:\COLLEGE WORK\ProjectPrograms\MultiThreading>java Th9
+            Thread : Thread-0
+            Thread : Thread-1
+            Thread : Thread-2
+            
+            </code> 
+    </pre>
+</body>
+</html>

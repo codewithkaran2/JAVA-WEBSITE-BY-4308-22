@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            abstract class Instrument {
+                public abstract void play();
+                public abstract void tune();
+            }
+            
+            class Glockenspiel extends Instrument {
+                @Override
+                public void play() {
+                    System.out.println("Playing a bright, ringing melody on the glockenspiel.");
+                }
+            
+                @Override
+                public void tune() {
+                    System.out.println("Tuning the glockenspiel by adjusting the metal bars to produce a clear, resonant sound.");
+                }
+            }
+            
+            class Violin extends Instrument {
+                @Override
+                public void play() {
+                    System.out.println("Playing a beautiful, expressive melody on the violin.");
+                }
+            
+                @Override
+                public void tune() {
+                    System.out.println("Tuning the violin by adjusting the strings and fine-tuning the pegs to produce a rich, harmonious sound.");
+                }
+            }
+            class Inherit23{
+                public static void main(String[] args) {
+                    Glockenspiel glockenspiel = new Glockenspiel();
+                    Violin violin = new Violin();
+            
+                    glockenspiel.play();
+                    glockenspiel.tune();
+            
+                    violin.play();
+                    violin.tune();
+                }
+            }
+            
+            
+            OUTPUT
+            
+            
+            Playing a bright, ringing melody on the glockenspiel.
+            Tuning the glockenspiel by adjusting the metal bars to produce a clear, resonant
+             sound.
+            Playing a beautiful, expressive melody on the violin.
+            Tuning the violin by adjusting the strings and fine-tuning the pegs to produce a
+             rich, harmonious sound.
+        </code>
+    </pre>
+</body>
+</html>

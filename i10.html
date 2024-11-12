@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the Encryptable interface
+interface Encryptable {
+    String encrypt(String data);
+    String decrypt(String encryptedData);
+}
+
+// Implement the AES class with a simple encryption algorithm
+class AES implements Encryptable {
+    @Override
+    public String encrypt(String data) {
+        // Simulate AES encryption (in reality, use proper encryption libraries)
+        StringBuilder encrypted = new StringBuilder();
+        for (char c : data.toCharArray()) {
+            encrypted.append((char) (c + 1));  // Simple shift by 1
+        }
+        return encrypted.toString();
+    }
+
+    @Override
+    public String decrypt(String encryptedData) {
+        // Simulate AES decryption (shift back by 1)
+        StringBuilder decrypted = new StringBuilder();
+        for (char c : encryptedData.toCharArray()) {
+            decrypted.append((char) (c - 1));
+        }
+        return decrypted.toString();
+    }
+}
+
+// Implement the RSA class with a simple encryption algorithm
+class RSA implements Encryptable {
+    @Override
+    public String encrypt(String data) {
+        // Simulate RSA encryption (in reality, use proper encryption libraries)
+        StringBuilder encrypted = new StringBuilder();
+        for (char c : data.toCharArray()) {
+            encrypted.append((char) (c + 2));  // Simple shift by 2
+        }
+        return encrypted.toString();
+    }
+
+    @Override
+    public String decrypt(String encryptedData) {
+        // Simulate RSA decryption (shift back by 2)
+        StringBuilder decrypted = new StringBuilder();
+        for (char c : encryptedData.toCharArray()) {
+            decrypted.append((char) (c - 2));
+        }
+        return decrypted.toString();
+    }
+}
+
+// Main class to test the implementations
+public class Main {
+    public static void main(String[] args) {
+        String data = "HelloWorld";
+
+        // Using AES encryption
+        Encryptable aesEncryptor = new AES();
+        String aesEncrypted = aesEncryptor.encrypt(data);
+        String aesDecrypted = aesEncryptor.decrypt(aesEncrypted);
+        
+        System.out.println("AES Encryption:");
+        System.out.println("Original: " + data);
+        System.out.println("Encrypted: " + aesEncrypted);
+        System.out.println("Decrypted: " + aesDecrypted);
+
+        // Using RSA encryption
+        Encryptable rsaEncryptor = new RSA();
+        String rsaEncrypted = rsaEncryptor.encrypt(data);
+        String rsaDecrypted = rsaEncryptor.decrypt(rsaEncrypted);
+        
+        System.out.println("\nRSA Encryption:");
+        System.out.println("Original: " + data);
+        System.out.println("Encrypted: " + rsaEncrypted);
+        System.out.println("Decrypted: " + rsaDecrypted);
+    }
+}
+
+        </code>
+    </pre>
+</body>
+</html>

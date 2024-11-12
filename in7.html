@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Person {
+                private String firstName;
+                private String lastName;
+                public Person(String firstName, String lastName) {
+                    this.firstName = firstName;
+                    this.lastName = lastName;
+                }
+                public String getFirstName() {
+                    return firstName;
+                }
+                public String getLastName() {
+                    return lastName;
+                }
+            }
+            class Employee extends Person {
+                private String employeeId;
+                private String jobTitle;
+                public Employee(String firstName, String lastName, String employeeId, String jobTitle) {
+                    super(firstName, lastName); 
+                    this.employeeId = employeeId;
+                    this.jobTitle = jobTitle;
+                }
+                public String getEmployeeId() {
+                    return employeeId;
+                }
+                public String getLastName() {
+                    return super.getLastName() + " (" + jobTitle + ")";
+                }
+            }
+            class Main {
+                public static void main(String[] args) {
+                    Employee emp = new Employee("John", "Doe", "E12345", "Software Engineer");
+                    System.out.println("First Name: " + emp.getFirstName());
+                    System.out.println("Last Name with Job Title: " + emp.getLastName());
+                    System.out.println("Employee ID: " + emp.getEmployeeId());
+                }
+            }
+            
+            
+            OUTPUT
+            
+            
+            First Name: John
+            Last Name with Job Title: Doe (Software Engineer)
+            Employee ID: E12345
+        </code>
+    </pre>
+</body>
+</html>

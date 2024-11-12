@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the Employee base class
+class Employee {
+    protected String name;
+    protected String address;
+    protected double salary;
+    protected String jobTitle;
+
+    // Constructor
+    public Employee(String name, String address, double salary, String jobTitle) {
+        this.name = name;
+        this.address = address;
+        this.salary = salary;
+        this.jobTitle = jobTitle;
+    }
+
+    // Method to calculate bonus (to be overridden by subclasses)
+    public double calculateBonus() {
+        return salary * 0.05; // Default 5% bonus
+    }
+
+    // Method to generate performance report (to be overridden by subclasses)
+    public String generatePerformanceReport() {
+        return "Performance report for " + name + " (Job Title: " + jobTitle + ")";
+    }
+
+    // Method to manage projects (to be overridden by subclasses)
+    public void manageProjects() {
+        System.out.println(name + " is managing projects.");
+    }
+
+    // Getters for properties
+    public String getName() {
+        return name;
+    }
+
+    public String getAddress() {
+        return address;
+    }
+
+    public double getSalary() {
+        return salary;
+    }
+
+    public String getJobTitle() {
+        return jobTitle;
+    }
+}
+
+// Define the Manager subclass
+class Manager extends Employee {
+    private int teamSize;
+
+    public Manager(String name, String address, double salary, String jobTitle, int teamSize) {
+        super(name, address, salary, jobTitle);
+        this.teamSize = teamSize;
+    }
+
+    @Override
+    public double calculateBonus() {
+        return salary * 0.10; // Managers get a 10% bonus
+    }
+
+    @Override
+    public String generatePerformanceReport() {
+        return super.generatePerformanceReport() + " - Manages a team of " + teamSize + " members.";
+    }
+
+    @Override
+    public void manageProjects() {
+        System.out.println(name + " is overseeing and managing multiple projects with a team of " + teamSize + " members.");
+    }
+
+    public int getTeamSize() {
+        return teamSize;
+    }
+}
+
+// Define the Developer subclass
+class Developer extends Employee {
+    private String programmingLanguages;
+
+    public Developer(String name, String address, double salary, String jobTitle, String programmingLanguages) {
+        super(name, address, salary, jobTitle);
+        this.programmingLanguages = programmingLanguages;
+    }
+
+    @Override
+    public double calculateBonus() {
+        return salary * 0.07; // Developers get a 7% bonus
+    }
+
+    @Override
+    public String generatePerformanceReport() {
+        return super.generatePerformanceReport() + " - Skilled in programming languages: " + programmingLanguages;
+    }
+
+    public String getProgrammingLanguages() {
+        return programmingLanguages;
+    }
+}
+
+// Define the Programmer subclass
+class Programmer extends Developer {
+    private String projectsWorkedOn;
+
+    public Programmer(String name, String address, double salary, String jobTitle, String programmingLanguages, String projectsWorkedOn) {
+        super(name, address, salary, jobTitle, programmingLanguages);
+        this.projectsWorkedOn = projectsWorkedOn;
+    }
+
+    @Override
+    public double calculateBonus() {
+        return salary * 0.08; // Programmers get an 8% bonus
+    }
+
+    @Override
+    public String generatePerformanceReport() {
+        return super.generatePerformanceReport() + " - Worked on projects: " + projectsWorkedOn;
+    }
+
+    public String getProjectsWorkedOn() {
+        return projectsWorkedOn;
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create instances of each employee type
+        Manager manager = new Manager("Alice", "123 Maple St", 90000, "Project Manager", 10);
+        Developer developer = new Developer("Bob", "456 Oak Ave", 80000, "Software Developer", "Java, Python");
+        Programmer programmer = new Programmer("Charlie", "789 Pine Dr", 70000, "Senior Programmer", "C++, JavaScript", "Inventory System, E-Commerce Platform");
+
+        // Test bonus calculation, performance report, and project management
+        System.out.println("Manager:");
+        System.out.println("Name: " + manager.getName());
+        System.out.println("Address: " + manager.getAddress());
+        System.out.println("Salary: $" + manager.getSalary());
+        System.out.println("Job Title: " + manager.getJobTitle());
+        System.out.println("Bonus: $" + manager.calculateBonus());
+        System.out.println("Performance Report: " + manager.generatePerformanceReport());
+        manager.manageProjects();
+
+        System.out.println("\nDeveloper:");
+        System.out.println("Name: " + developer.getName());
+        System.out.println("Address: " + developer.getAddress());
+        System.out.println("Salary: $" + developer.getSalary());
+        System.out.println("Job Title: " + developer.getJobTitle());
+        System.out.println("Bonus: $" + developer.calculateBonus());
+        System.out.println("Performance Report: " + developer.generatePerformanceReport());
+
+        System.out.println("\nProgrammer:");
+        System.out.println("Name: " + programmer.getName());
+        System.out.println("Address: " + programmer.getAddress());
+        System.out.println("Salary: $" + programmer.getSalary());
+        System.out.println("Job Title: " + programmer.getJobTitle());
+        System.out.println("Bonus: $" + programmer.calculateBonus());
+        System.out.println("Performance Report: " + programmer.generatePerformanceReport());
+    }
+}
+
+
+OUTPUT
+
+
+Manager:
+Name: Alice
+Address: 123 Maple St
+Salary: $90000.0
+Job Title: Project Manager
+Bonus: $9000.0
+Performance Report: Performance report for Alice (Job Title: Project Manager) - Manages a
+ team of 10 members.
+Alice is overseeing and managing multiple projects with a team of 10 members.
+
+Developer:
+Name: Bob
+Address: 456 Oak Ave
+Salary: $80000.0
+Job Title: Software Developer
+Bonus: $5600.000000000001
+Performance Report: Performance report for Bob (Job Title: Software Developer) - Skilled
+in programming languages: Java, Python
+
+Programmer:
+Name: Charlie
+Address: 789 Pine Dr
+Salary: $70000.0
+Job Title: Senior Programmer
+Bonus: $5600.0
+Performance Report: Performance report for Charlie (Job Title: Senior Programmer) - Skill
+ed in programming languages: C++, JavaScript - Worked on projects: Inventory System, E-Co
+mmerce Platform
+        </code>
+    </pre>
+</body>
+</html>

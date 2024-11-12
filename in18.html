@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the abstract class Animal
+abstract class Animal {
+    // Abstract method to define how the animal eats
+    public abstract void eat();
+
+    // Abstract method to define how the animal sleeps
+    public abstract void sleep();
+}
+
+// Define the Lion class that extends Animal
+class Lion extends Animal {
+    // Implement the eat method for Lion
+    @Override
+    public void eat() {
+        System.out.println("Lion eats meat.");
+    }
+
+    // Implement the sleep method for Lion
+    @Override
+    public void sleep() {
+        System.out.println("Lion sleeps in the savannah.");
+    }
+}
+
+// Define the Tiger class that extends Animal
+class Tiger extends Animal {
+    // Implement the eat method for Tiger
+    @Override
+    public void eat() {
+        System.out.println("Tiger eats meat.");
+    }
+
+    // Implement the sleep method for Tiger
+    @Override
+    public void sleep() {
+        System.out.println("Tiger sleeps in the jungle.");
+    }
+}
+
+// Define the Deer class that extends Animal
+class Deer extends Animal {
+    // Implement the eat method for Deer
+    @Override
+    public void eat() {
+        System.out.println("Deer eats plants and leaves.");
+    }
+
+    // Implement the sleep method for Deer
+    @Override
+    public void sleep() {
+        System.out.println("Deer sleeps in the forest.");
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create instances of Lion, Tiger, and Deer
+        Animal lion = new Lion();
+        Animal tiger = new Tiger();
+        Animal deer = new Deer();
+
+        // Call the eat and sleep methods on each instance
+        System.out.println("Lion:");
+        lion.eat();
+        lion.sleep();
+
+        System.out.println("\nTiger:");
+        tiger.eat();
+        tiger.sleep();
+
+        System.out.println("\nDeer:");
+        deer.eat();
+        deer.sleep();
+    }
+}
+
+
+OUTPUT
+
+
+Lion:
+Lion eats meat.
+Lion sleeps in the savannah.
+
+Tiger:
+Tiger eats meat.
+Tiger sleeps in the jungle.
+
+Deer:
+Deer eats plants and leaves.
+Deer sleeps in the forest.
+        </code>
+    </pre>
+</body>
+</html>

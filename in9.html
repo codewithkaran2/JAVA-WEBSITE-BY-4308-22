@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the Vehicle base class
+class Vehicle {
+    protected String make;
+    protected String model;
+    protected int year;
+    protected String fuelType;
+
+    // Constructor
+    public Vehicle(String make, String model, int year, String fuelType) {
+        this.make = make;
+        this.model = model;
+        this.year = year;
+        this.fuelType = fuelType;
+    }
+
+    // Method to calculate fuel efficiency (to be overridden by subclasses)
+    public double calculateFuelEfficiency() {
+        return 0.0; // Default implementation
+    }
+
+    // Method to calculate distance traveled (to be overridden by subclasses)
+    public double calculateDistanceTraveled(double fuelConsumed) {
+        return calculateFuelEfficiency() * fuelConsumed; // Default implementation
+    }
+
+    // Method to calculate maximum speed (to be overridden by subclasses)
+    public double calculateMaximumSpeed() {
+        return 0.0; // Default implementation
+    }
+
+    // Getters for properties
+    public String getMake() {
+        return make;
+    }
+
+    public String getModel() {
+        return model;
+    }
+
+    public int getYear() {
+        return year;
+    }
+
+    public String getFuelType() {
+        return fuelType;
+    }
+}
+
+// Define the Truck subclass
+class Truck extends Vehicle {
+    private double loadCapacity; // in tons
+
+    public Truck(String make, String model, int year, String fuelType, double loadCapacity) {
+        super(make, model, year, fuelType);
+        this.loadCapacity = loadCapacity;
+    }
+
+    @Override
+    public double calculateFuelEfficiency() {
+        return 8.0; // Example value: 8 miles per gallon
+    }
+
+    @Override
+    public double calculateMaximumSpeed() {
+        return 80.0; // Example value: 80 mph
+    }
+
+    public double getLoadCapacity() {
+        return loadCapacity;
+    }
+}
+
+// Define the Car subclass
+class Car extends Vehicle {
+    private int numberOfDoors;
+
+    public Car(String make, String model, int year, String fuelType, int numberOfDoors) {
+        super(make, model, year, fuelType);
+        this.numberOfDoors = numberOfDoors;
+    }
+
+    @Override
+    public double calculateFuelEfficiency() {
+        return 25.0; // Example value: 25 miles per gallon
+    }
+
+    @Override
+    public double calculateMaximumSpeed() {
+        return 150.0; // Example value: 150 mph
+    }
+
+    public int getNumberOfDoors() {
+        return numberOfDoors;
+    }
+}
+
+// Define the Motorcycle subclass
+class Motorcycle extends Vehicle {
+    private boolean hasSidecar;
+
+    public Motorcycle(String make, String model, int year, String fuelType, boolean hasSidecar) {
+        super(make, model, year, fuelType);
+        this.hasSidecar = hasSidecar;
+    }
+
+    @Override
+    public double calculateFuelEfficiency() {
+        return 50.0; // Example value: 50 miles per gallon
+    }
+
+    @Override
+    public double calculateMaximumSpeed() {
+        return 120.0; // Example value: 120 mph
+    }
+
+    public boolean hasSidecar() {
+        return hasSidecar;
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create instances of each vehicle type
+        Truck truck = new Truck("Ford", "F-150", 2023, "Diesel", 3.0);
+        Car car = new Car("Toyota", "Camry", 2022, "Gasoline", 4);
+        Motorcycle motorcycle = new Motorcycle("Harley-Davidson", "Street 750", 2021, "Gasoline", false);
+
+        // Test fuel efficiency and maximum speed calculations
+        System.out.println("Truck:");
+        System.out.println("Make: " + truck.getMake());
+        System.out.println("Model: " + truck.getModel());
+        System.out.println("Year: " + truck.getYear());
+        System.out.println("Fuel Type: " + truck.getFuelType());
+        System.out.println("Load Capacity: " + truck.getLoadCapacity() + " tons");
+        System.out.println("Fuel Efficiency: " + truck.calculateFuelEfficiency() + " miles per gallon");
+        System.out.println("Maximum Speed: " + truck.calculateMaximumSpeed() + " mph");
+
+        System.out.println("\nCar:");
+        System.out.println("Make: " + car.getMake());
+        System.out.println("Model: " + car.getModel());
+        System.out.println("Year: " + car.getYear());
+        System.out.println("Fuel Type: " + car.getFuelType());
+        System.out.println("Number of Doors: " + car.getNumberOfDoors());
+        System.out.println("Fuel Efficiency: " + car.calculateFuelEfficiency() + " miles per gallon");
+        System.out.println("Maximum Speed: " + car.calculateMaximumSpeed() + " mph");
+
+        System.out.println("\nMotorcycle:");
+        System.out.println("Make: " + motorcycle.getMake());
+        System.out.println("Model: " + motorcycle.getModel());
+        System.out.println("Year: " + motorcycle.getYear());
+        System.out.println("Fuel Type: " + motorcycle.getFuelType());
+        System.out.println("Has Sidecar: " + motorcycle.hasSidecar());
+        System.out.println("Fuel Efficiency: " + motorcycle.calculateFuelEfficiency() + " miles per gallon");
+        System.out.println("Maximum Speed: " + motorcycle.calculateMaximumSpeed() + " mph");
+    }
+}
+
+
+OUTPUT
+
+
+Truck:
+Make: Ford
+Model: F-150
+Year: 2023
+Fuel Type: Diesel
+Load Capacity: 3.0 tons
+Fuel Efficiency: 8.0 miles per gallon
+Maximum Speed: 80.0 mph
+
+Car:
+Make: Toyota
+Model: Camry
+Year: 2022
+Fuel Type: Gasoline
+Number of Doors: 4
+Fuel Efficiency: 25.0 miles per gallon
+Maximum Speed: 150.0 mph
+
+Motorcycle:
+Make: Harley-Davidson
+Model: Street 750
+Year: 2021
+Fuel Type: Gasoline
+Has Sidecar: false
+Fuel Efficiency: 50.0 miles per gallon
+Maximum Speed: 120.0 mph
+        </code>
+    </pre>
+</body>
+</html>

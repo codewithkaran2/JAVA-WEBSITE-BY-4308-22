@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Table{
+                public synchronized void printTable(int n){
+                for(int i=1;i<=5;i++){
+                System.out.println(n*i);
+                }}}
+                
+                class MyThread1 extends Thread{
+                Table t;
+                MyThread1(Table t){
+                this.t=t;
+                }
+                public void run(){
+                t.printTable(5);
+                }}
+                
+                class MyThread2 extends Thread{
+                Table t;
+                MyThread2(Table t){
+                this.t=t;
+                }
+                public void run(){
+                t.printTable(7);
+                }}
+                
+                class Main{
+                public static void main(String[] args){
+                Table obj=new Table();
+                MyThread1 m1=new MyThread1(obj);
+                MyThread2 m2=new MyThread2(obj);
+                m1.start();
+                m2.start();
+                }}
+                
+                
+                OUTPUT
+                
+                
+                G:\COLLEGE WORK\ProjectPrograms\MultiThreading>javac Th11.java
+                
+                G:\COLLEGE WORK\ProjectPrograms\MultiThreading>java Main
+                5
+                10
+                15
+                20
+                25
+                7
+                14
+                21
+                28
+                35
+            </code> 
+    </pre>
+</body>
+</html>

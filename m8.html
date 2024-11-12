@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Th8 implements Runnable{
+                public void run() {
+                    System.out.println("Thread : "+Thread.currentThread().getName());
+                }
+                public static void main(String[] args) {
+                    Th8 t1 = new Th8();
+                    Thread th1=new Thread(t1);
+                    th1.start();
+                    Th8 t2 = new Th8();
+                    Thread th2=new Thread(t2);
+                    th2.start();
+                    Th8 t3 = new Th8();
+                    Thread th3=new Thread(t3);
+                    th3.start();
+                }}
+            
+            OUTPUT
+            
+            
+            G:\COLLEGE WORK\ProjectPrograms\MultiThreading>javac Th8.java
+            
+            G:\COLLEGE WORK\ProjectPrograms\MultiThreading>java Th8
+            Thread : Thread-0
+            Thread : Thread-1
+            Thread : Thread-2  
+            </code> 
+    </pre>
+</body>
+</html>

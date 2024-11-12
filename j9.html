@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.sql.*;
+import java.io.*;
+class jdbc9 {
+    static BufferedReader reader = new BufferedReader(new InputStreamReader(System.in));
+    static Connection con;
+    static Statement st;
+    static PreparedStatement pst;
+    public static void main(String[] args) throws ClassNotFoundException, java.sql.SQLException, IOException {
+        Class.forName("com.mysql.jdbc.Driver");
+        con = DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu", "root", "root");
+        st = con.createStatement(ResultSet.TYPE_SCROLL_SENSITIVE, ResultSet.CONCUR_UPDATABLE);
+        System.out.println("Choose option:\n1. Insert\n2. Update\n3. Delete\n4. See table");
+        int option = Integer.parseInt(reader.readLine());
+        switch (option) {
+            case 1:
+                insert();
+                break;
+            case 2:
+                update();
+                break;
+            case 3:
+                delete();
+                break;
+            case 4:
+                show();
+                break;
+            default:
+                System.out.println("Invalid option!");
+                break;
+        }
+    }
+
+    static void insert() throws java.sql.SQLException, IOException {
+        pst = con.prepareStatement("INSERT INTO employee(sno,name,salary) VALUES(?,?,?)");
+        System.out.println("Enter Serial number :");
+        int sno = Integer.parseInt(reader.readLine());        
+        System.out.println("Enter name:");
+        String name = reader.readLine();
+        System.out.println("Enter salary :");
+        int salary = Integer.parseInt(reader.readLine());
+        pst.setInt(1,sno);
+        pst.setString(2, name);
+        pst.setInt(3, salary);
+        int res = pst.executeUpdate();
+        System.out.println(res + " record(s) inserted");
+    }
+
+    static void update() throws java.sql.SQLException, IOException {
+        pst = con.prepareStatement("UPDATE employee SET salary=? WHERE sno=?");
+        System.out.println("Enter Sno whose Salary to update:");
+        int sno = Integer.parseInt(reader.readLine());
+        System.out.println("Enter new salary:");
+        int salary = Integer.parseInt(reader.readLine());
+        
+ pst.setInt(2,sno);
+pst.setInt(1,salary);
+       
+        int res = pst.executeUpdate();
+        System.out.println(res + " record(s) updated");
+    }
+
+    static void delete() throws java.sql.SQLException, IOException {
+        pst = con.prepareStatement("DELETE FROM employee WHERE sno=?");
+        System.out.println("Enter sno to delete:");
+        int sno = Integer.parseInt(reader.readLine());
+        pst.setInt(1,sno);
+        int res = pst.executeUpdate();
+        System.out.println(res + " record(s) deleted");
+    }
+
+    static void show() throws java.sql.SQLException {
+        pst = con.prepareStatement("SELECT * FROM employee");
+        ResultSet view = pst.executeQuery();
+        System.out.println("Data:");
+        System.out.println("Sno     Name     Salary");
+        while (view.next()) {
+            System.out.println(view.getString("sno") + "     "+view.getString("name") + "        " + view.getFloat("salary"));
+        }
+    }
+}
+
+
+OUTPUT
+
+
+G:\COLLEGE WORK\JavaPrograms>javac jdbc9.java
+
+G:\COLLEGE WORK\JavaPrograms>java jdbc9
+Choose option:
+1. Insert
+2. Update
+3. Delete
+4. See table
+1
+Enter Serial number :
+1
+Enter name:
+Madhu
+Enter salary :
+30000
+1 record(s) inserted
+--------------------------
+Choose option:
+1. Insert
+2. Update
+3. Delete
+4. See table
+1
+Enter Serial number :
+2
+Enter name:
+Heena
+Enter salary :
+35000
+1 record(s) inserted
+--------------------------
+Choose option:
+1. Insert
+2. Update
+3. Delete
+4. See table
+1
+Enter Serial number :
+3
+Enter name:
+Muskan
+Enter salary :
+40000
+1 record(s) inserted
+--------------------------
+Choose option:
+1. Insert
+2. Update
+3. Delete
+4. See table
+3
+Enter sno to delete:
+2
+1 record(s) deleted
+--------------------------
+Choose option:
+1. Insert
+2. Update
+3. Delete
+4. See table
+2
+Enter Sno whose Salary to update:
+3
+Enter new salary:
+50000
+1 record(s) updated
+---------------------------------
+Choose option:
+1. Insert
+2. Update
+3. Delete
+4. See table
+4
+Data:
+Sno   Name       Salary
+1     Madhu      30000.0
+3     Muskan     50000.0
+        </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the superclass
+class Animal {
+    // Method in the superclass
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Define the subclass
+class Cat extends Animal {
+    // Overridden method in the subclass
+    @Override
+    public void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create instances of Animal, Cat
+        Animal myAnimal = new Animal();
+        Animal myCat = new Cat();
+
+
+        // Call the makeSound method on each instance
+        myAnimal.makeSound(); // Calls Animal's makeSound()
+        myCat.makeSound();    // Calls Cat's overridden makeSound()
+    }
+}
+
+
+OUTPUT
+
+
+Animal makes a sound
+Cat meows
+        </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.sql.*;
+class jdbc4{
+public static void main(String s[]) throws java.lang.ClassNotFoundException,SQLException{
+Class.forName("com.mysql.jdbc.Driver");
+Connection c1=DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu","root","root");
+Statement st=c1.createStatement();
+System.out.println(st.executeUpdate("Update student set name='Savita' where rollno=4"));
+}}
+
+OUTPUT
+
+
+G:\COLLEGE WORK\JavaPrograms>javac jdbc4.java
+G:\COLLEGE WORK\JavaPrograms>java jdbc4
+
+mysql> select * from student;
++--------+--------+
+| rollno | name   |
++--------+--------+
+|      1 | Madhu  |
+|      2 | monika |
+|      4 | Jyoti  |
++--------+--------+
+3 rows in set (0.00 sec)
+
+mysql> select * from student;
++--------+--------+
+| rollno | name   |
++--------+--------+
+|      1 | Madhu  |
+|      2 | monika |
+|      4 | Savita |
++--------+--------+
+3 rows in set (0.00 sec)
+
+        </code>
+    </pre>
+</body>
+</html>

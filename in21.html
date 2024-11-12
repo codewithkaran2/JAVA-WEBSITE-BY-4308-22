@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            abstract class Vehicle {
+                public abstract void startEngine();
+                public abstract void stopEngine();
+            }
+            class Car extends Vehicle {
+                @Override
+                public void startEngine() {
+                    System.out.println("Starting car engine...");
+                }
+            
+                @Override
+                public void stopEngine() {
+                    System.out.println("Stopping car engine...");
+                }
+            }
+            class Motorcycle extends Vehicle {
+                @Override
+                public void startEngine() {
+                    System.out.println("Starting motorcycle engine...");
+                }
+            
+                @Override
+                public void stopEngine() {
+                    System.out.println("Stopping motorcycle engine...");
+                }
+            }
+            class Inherit21{
+                public static void main(String[] args) {
+                    Car car = new Car();
+                    Motorcycle motorcycle = new Motorcycle();
+            
+                    car.startEngine();
+                    car.stopEngine();
+            
+                    motorcycle.startEngine();
+                    motorcycle.stopEngine();
+                }
+            }
+            
+            
+            
+            OUTPUT
+            
+            
+            Starting car engine...
+            Stopping car engine...
+            Starting motorcycle engine...
+            Stopping motorcycle engine...
+        </code>
+    </pre>
+</body>
+</html>

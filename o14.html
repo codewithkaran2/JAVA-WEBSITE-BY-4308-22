@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.util.ArrayList;
+            import java.util.List;
+            
+            class Student {
+                private String name;
+                private int id;
+            
+                public Student(String name, int id) {
+                    this.name = name;
+                    this.id = id;
+                }
+            
+                public String getName() {
+                    return name;
+                }
+            
+                public int getId() {
+                    return id;
+                }
+            
+                @Override
+                public String toString() {
+                    return "Student{Name='" + name + "', ID=" + id + "}";
+                }
+            }
+            
+            class Teacher {
+                private String name;
+                private int id;
+            
+                public Teacher(String name, int id) {
+                    this.name = name;
+                    this.id = id;
+                }
+            
+                public String getName() {
+                    return name;
+                }
+            
+                public int getId() {
+                    return id;
+                }
+            
+                @Override
+                public String toString() {
+                    return "Teacher{Name='" + name + "', ID=" + id + "}";
+                }
+            }
+            
+            class SchoolClass {
+                private String className;
+                private Teacher teacher;
+                private List<Student> students;
+            
+                public SchoolClass(String className, Teacher teacher) {
+                    this.className = className;
+                    this.teacher = teacher;
+                    this.students = new ArrayList<>();
+                }
+            
+                public String getClassName() {
+                    return className;
+                }
+            
+                public Teacher getTeacher() {
+                    return teacher;
+                }
+            
+                public List<Student> getStudents() {
+                    return students;
+                }
+            
+                public void addStudent(Student student) {
+                    students.add(student);
+                    System.out.println("Added " + student + " to class " + className);
+                }
+            
+                public void removeStudent(int studentId) {
+                    students.removeIf(student -> student.getId() == studentId);
+                    System.out.println("Removed student with ID " + studentId + " from class " + className);
+                }
+            
+                @Override
+                public String toString() {
+                    return "SchoolClass{Name='" + className + "', Teacher=" + teacher + ", Students=" + students + "}";
+                }
+            }
+            
+            class School {
+                private List<Student> students;
+                private List<Teacher> teachers;
+                private List<SchoolClass> classes;
+            
+                public School() {
+                    students = new ArrayList<>();
+                    teachers = new ArrayList<>();
+                    classes = new ArrayList<>();
+                }
+            
+                // Methods to add and remove students
+                public void addStudent(Student student) {
+                    students.add(student);
+                    System.out.println("Added student: " + student);
+                }
+            
+                public void removeStudent(int studentId) {
+                    students.removeIf(student -> student.getId() == studentId);
+                    System.out.println("Removed student with ID " + studentId);
+                }
+            
+                // Methods to add and remove teachers
+                public void addTeacher(Teacher teacher) {
+                    teachers.add(teacher);
+                    System.out.println("Added teacher: " + teacher);
+                }
+            
+                public void removeTeacher(int teacherId) {
+                    teachers.removeIf(teacher -> teacher.getId() == teacherId);
+                    System.out.println("Removed teacher with ID " + teacherId);
+                }
+            
+                // Method to create a new class
+                public void createClass(String className, int teacherId) {
+                    Teacher assignedTeacher = teachers.stream()
+                        .filter(teacher -> teacher.getId() == teacherId)
+                        .findFirst()
+                        .orElse(null);
+            
+                    if (assignedTeacher != null) {
+                        SchoolClass newClass = new SchoolClass(className, assignedTeacher);
+                        classes.add(newClass);
+                        System.out.println("Created new class: " + newClass);
+                    } else {
+                        System.out.println("Teacher with ID " + teacherId + " not found. Cannot create class.");
+                    }
+                }
+            
+                public List<SchoolClass> getClasses() {
+                    return classes;
+                }
+            
+                @Override
+                public String toString() {
+                    return "School{Students=" + students + ", Teachers=" + teachers + ", Classes=" + classes + "}";
+                }
+            }
+            
+            public class SchoolSystem {
+                public static void main(String[] args) {
+                    School school = new School();
+            
+                    // Add students
+                    Student student1 = new Student("Alice", 1);
+                    Student student2 = new Student("Bob", 2);
+                    school.addStudent(student1);
+                    school.addStudent(student2);
+            
+                    // Add teachers
+                    Teacher teacher1 = new Teacher("Mr. Smith", 101);
+                    Teacher teacher2 = new Teacher("Ms. Johnson", 102);
+                    school.addTeacher(teacher1);
+                    school.addTeacher(teacher2);
+            
+                    // Create classes and add students
+                    school.createClass("Math", 101);
+                    school.createClass("Science", 102);
+            
+                    // Add students to classes
+                    school.getClasses().get(0).addStudent(student1);
+                    school.getClasses().get(1).addStudent(student2);
+            
+                    // Remove a student and a teacher
+                    school.removeStudent(1);
+                    school.removeTeacher(102);
+            
+                    // Display all information
+                    System.out.println(school);
+                }
+            }
+            
+
+            
+        </code>
+    </pre>
+</body>
+</html>

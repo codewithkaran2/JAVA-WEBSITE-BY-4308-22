@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the abstract class Employee
+abstract class Employee {
+    protected String name;
+    protected int employeeId;
+
+    // Constructor to initialize the employee details
+    public Employee(String name, int employeeId) {
+        this.name = name;
+        this.employeeId = employeeId;
+    }
+
+    // Abstract method to calculate the salary
+    public abstract double calculateSalary();
+
+    // Abstract method to display employee information
+    public abstract void displayInfo();
+}
+
+// Define the Manager class that extends Employee
+class Manager extends Employee {
+    private double baseSalary;
+    private double bonus;
+
+    // Constructor to initialize the Manager details
+    public Manager(String name, int employeeId, double baseSalary, double bonus) {
+        super(name, employeeId);
+        this.baseSalary = baseSalary;
+        this.bonus = bonus;
+    }
+
+    // Implement the calculateSalary method for Manager
+    @Override
+    public double calculateSalary() {
+        return baseSalary + bonus;
+    }
+
+    // Implement the displayInfo method for Manager
+    @Override
+    public void displayInfo() {
+        System.out.println("Manager Information:");
+        System.out.println("Name: " + name);
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Base Salary: $" + baseSalary);
+        System.out.println("Bonus: $" + bonus);
+        System.out.println("Total Salary: $" + calculateSalary());
+    }
+}
+
+// Define the Programmer class that extends Employee
+class Programmer extends Employee {
+    private double hourlyRate;
+    private int hoursWorked;
+
+    // Constructor to initialize the Programmer details
+    public Programmer(String name, int employeeId, double hourlyRate, int hoursWorked) {
+        super(name, employeeId);
+        this.hourlyRate = hourlyRate;
+        this.hoursWorked = hoursWorked;
+    }
+
+    // Implement the calculateSalary method for Programmer
+    @Override
+    public double calculateSalary() {
+        return hourlyRate * hoursWorked;
+    }
+
+    // Implement the displayInfo method for Programmer
+    @Override
+    public void displayInfo() {
+        System.out.println("Programmer Information:");
+        System.out.println("Name: " + name);
+        System.out.println("Employee ID: " + employeeId);
+        System.out.println("Hourly Rate: $" + hourlyRate);
+        System.out.println("Hours Worked: " + hoursWorked);
+        System.out.println("Total Salary: $" + calculateSalary());
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create Manager and Programmer objects
+        Employee manager = new Manager("Alice Johnson", 101, 80000, 5000);
+        Employee programmer = new Programmer("Bob Smith", 102, 50, 160);
+
+        // Display information and salary for each employee
+        System.out.println("----- Manager Details -----");
+        manager.displayInfo();
+
+        System.out.println("\n----- Programmer Details -----");
+        programmer.displayInfo();
+    }
+}
+
+
+OUTPUT
+
+
+----- Manager Details -----
+Manager Information:
+Name: Alice Johnson
+Employee ID: 101
+Base Salary: $80000.0
+Bonus: $5000.0
+Total Salary: $85000.0
+
+----- Programmer Details -----
+Programmer Information:
+Name: Bob Smith
+Employee ID: 102
+Hourly Rate: $50.0
+Hours Worked: 160
+Total Salary: $8000.0
+        </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the Searchable interface
+interface Searchable {
+    boolean search(String keyword);
+}
+
+// Implement the Document class
+class Document implements Searchable {
+    private String content;
+
+    public Document(String content) {
+        this.content = content;
+    }
+
+    @Override
+    public boolean search(String keyword) {
+        // Search for the keyword in the document content
+        return content.contains(keyword);
+    }
+}
+
+// Implement the WebPage class
+class WebPage implements Searchable {
+    private String htmlContent;
+
+    public WebPage(String htmlContent) {
+        this.htmlContent = htmlContent;
+    }
+
+    @Override
+    public boolean search(String keyword) {
+        // Search for the keyword in the web page content
+        return htmlContent.contains(keyword);
+    }
+}
+
+// Main class to test the implementations
+public class Main {
+    public static void main(String[] args) {
+        // Create a Document with sample content
+        Document doc = new Document("This is a sample document text for testing keyword search.");
+        
+        // Create a WebPage with sample HTML content
+        WebPage page = new WebPage("<html><body>This is a sample webpage for testing keyword search.</body></html>");
+
+        // Keyword to search
+        String keyword = "testing";
+
+        // Perform search on Document
+        System.out.println("Searching in Document...");
+        if (doc.search(keyword)) {
+            System.out.println("Keyword \"" + keyword + "\" found in Document.");
+        } else {
+            System.out.println("Keyword \"" + keyword + "\" not found in Document.");
+        }
+
+        // Perform search on WebPage
+        System.out.println("Searching in WebPage...");
+        if (page.search(keyword)) {
+            System.out.println("Keyword \"" + keyword + "\" found in WebPage.");
+        } else {
+            System.out.println("Keyword \"" + keyword + "\" not found in WebPage.");
+        }
+    }
+}
+
+        </code>
+    </pre>
+</body>
+</html>

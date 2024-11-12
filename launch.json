@@ -1,0 +1,63 @@
+{
+    // Use IntelliSense to learn about possible attributes.
+    // Hover to view descriptions of existing attributes.
+    // For more information, visit: https://go.microsoft.com/fwlink/?linkid=830387
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "type": "java",
+            "name": "Current File",
+            "request": "launch",
+            "mainClass": "${file}"
+        },
+        {
+            "type": "java",
+            "name": "Dog",
+            "request": "launch",
+            "mainClass": "Dog",
+            "projectName": "java_49c1cd32"
+        },
+        {
+            "type": "java",
+            "name": "b1",
+            "request": "launch",
+            "mainClass": "b1",
+            "projectName": "java_49c1cd32"
+        },
+        {
+            "type": "java",
+            "name": "b2",
+            "request": "launch",
+            "mainClass": "b2",
+            "projectName": "java_49c1cd32"
+        },
+        {
+            "type": "java",
+            "name": "b3",
+            "request": "launch",
+            "mainClass": "b3",
+            "projectName": "java_49c1cd32"
+        },
+        {
+            "type": "java",
+            "name": "b4",
+            "request": "launch",
+            "mainClass": "b4",
+            "projectName": "java_49c1cd32"
+        },
+        {
+            "type": "java",
+            "name": "b5",
+            "request": "launch",
+            "mainClass": "b5",
+            "projectName": "java_49c1cd32"
+        },
+        {
+            "type": "java",
+            "name": "person",
+            "request": "launch",
+            "mainClass": "person",
+            "projectName": "java_49c1cd32"
+        }
+    ]
+}

@@ -1,0 +1,118 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the abstract class Shape
+abstract class Shape {
+    // Abstract method to calculate the area of the shape
+    public abstract double calculateArea();
+
+    // Abstract method to calculate the perimeter of the shape
+    public abstract double calculatePerimeter();
+}
+
+// Define the Circle class that extends Shape
+class Circle extends Shape {
+    private double radius;
+
+    // Constructor to initialize radius
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Implement the abstract method to calculate the area of the circle
+    @Override
+    public double calculateArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Implement the abstract method to calculate the perimeter of the circle
+    @Override
+    public double calculatePerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    // Getter for radius
+    public double getRadius() {
+        return radius;
+    }
+}
+
+// Define the Triangle class that extends Shape
+class Triangle extends Shape {
+    private double side1;
+    private double side2;
+    private double side3;
+
+    // Constructor to initialize the sides of the triangle
+    public Triangle(double side1, double side2, double side3) {
+        this.side1 = side1;
+        this.side2 = side2;
+        this.side3 = side3;
+    }
+
+    // Implement the abstract method to calculate the area of the triangle
+    @Override
+    public double calculateArea() {
+        double s = (side1 + side2 + side3) / 2;
+        return Math.sqrt(s * (s - side1) * (s - side2) * (s - side3));
+    }
+
+    // Implement the abstract method to calculate the perimeter of the triangle
+    @Override
+    public double calculatePerimeter() {
+        return side1 + side2 + side3;
+    }
+
+    // Getters for sides
+    public double getSide1() {
+        return side1;
+    }
+
+    public double getSide2() {
+        return side2;
+    }
+
+    public double getSide3() {
+        return side3;
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create a Circle object with radius 5
+        Shape myCircle = new Circle(5);
+        System.out.println("Circle:");
+        System.out.println("Area: " + myCircle.calculateArea());
+        System.out.println("Perimeter: " + myCircle.calculatePerimeter());
+
+        // Create a Triangle object with sides 3, 4, and 5
+        Shape myTriangle = new Triangle(3, 4, 5);
+        System.out.println("\nTriangle:");
+        System.out.println("Area: " + myTriangle.calculateArea());
+        System.out.println("Perimeter: " + myTriangle.calculatePerimeter());
+    }
+}
+
+
+OUTPUT
+
+
+Circle:
+Area: 78.53981633974483
+Perimeter: 31.41592653589793
+
+Triangle:
+Area: 6.0
+Perimeter: 12.0
+        </code>
+    </pre>
+</body>
+</html>

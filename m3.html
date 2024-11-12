@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            import java.util.Arrays;
+
+public class MultiThreadedMergeSort {
+    private static final int THREAD_COUNT = 4; // Number of threads
+
+    public static void main(String[] args) {
+        int[] array = {9, 7, 5, 3, 1, 2, 4, 6, 8, 0};
+        System.out.println("Original Array: " + Arrays.toString(array));
+
+        // Sort the array using multiple threads
+        parallelMergeSort(array, THREAD_COUNT);
+
+        System.out.println("Sorted Array: " + Arrays.toString(array));
+    }
+
+    public static void parallelMergeSort(int[] array, int numThreads) {
+        if (numThreads &lt;= 1) {
+            mergeSort(array, 0, array.length - 1);
+        } else if (array.length >= 2) {
+            // Split array into two halves
+            int mid = array.length / 2;
+
+            int[] left = Arrays.copyOfRange(array, 0, mid);
+            int[] right = Arrays.copyOfRange(array, mid, array.length);
+
+            // Sort each half in parallel threads
+            Thread leftSorter = new Thread(() -> parallelMergeSort(left, numThreads / 2));
+            Thread rightSorter = new Thread(() -> parallelMergeSort(right, numThreads / 2));
+
+            leftSorter.start();
+            rightSorter.start();
+
+            // Wait for both threads to finish
+            try {
+                leftSorter.join();
+                rightSorter.join();
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+
+            // Merge sorted halves back into the array
+            merge(array, left, right);
+        }
+    }
+
+    // Standard merge sort implementation
+    public static void mergeSort(int[] array, int left, int right) {
+        if (left &lt; right) {
+            int mid = (left + right) / 2;
+            mergeSort(array, left, mid);
+            mergeSort(array, mid + 1, right);
+            merge(array, Arrays.copyOfRange(array, left, mid + 1), Arrays.copyOfRange(array, mid + 1, right + 1));
+        }
+    }
+
+    // Merging two sorted arrays
+    public static void merge(int[] result, int[] left, int[] right) {
+        int i = 0, j = 0, k = 0;
+
+        while (i &lt; left.length && j &lt; right.length) {
+            if (left[i] &lt;= right[j]) {
+                result[k++] = left[i++];
+            } else {
+                result[k++] = right[j++];
+            }
+        }
+
+        // Copy remaining elements of left array, if any
+        while (i &lt; left.length) {
+            result[k++] = left[i++];
+        }
+
+        // Copy remaining elements of right array, if any
+        while (j &lt; right.length) {
+            result[k++] = right[j++];
+        }
+    }
+}
+
+            </code> 
+    </pre>
+</body>
+</html>

@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            abstract class Shape2D {
+                public abstract void draw();
+                public abstract void resize();
+            }
+            
+            class Rectangle extends Shape2D {
+                private int width;
+                private int height;
+            
+                public Rectangle(int width, int height) {
+                    this.width = width;
+                    this.height = height;
+                }
+            
+                @Override
+                public void draw() {
+                    System.out.println("Drawing a rectangle with width " + width + " and height " + height);
+                }
+            
+                @Override
+                public void resize() {
+                    System.out.println("Resizing the rectangle to twice its original size");
+                    width *= 2;
+                    height *= 2;
+                }
+            }
+            
+            class Circle extends Shape2D {
+                private int radius;
+            
+                public Circle(int radius) {
+                    this.radius = radius;
+                }
+            
+                @Override
+                public void draw() {
+                    System.out.println("Drawing a circle with radius " + radius);
+                }
+            
+                @Override
+                public void resize() {
+                    System.out.println("Resizing the circle to twice its original radius");
+                    radius *= 2;
+                }
+            }
+            
+            class Inherit24{
+                public static void main(String[] args) {
+                    Rectangle rectangle = new Rectangle(5, 10);
+                    Circle circle = new Circle(7);
+            
+                    rectangle.draw();
+                    rectangle.resize();
+                    rectangle.draw();
+            
+                    circle.draw();
+                    circle.resize();
+                    circle.draw();
+                }
+            }
+            
+            
+            OUTPUT
+            
+            
+            Drawing a rectangle with width 5 and height 10
+            Resizing the rectangle to twice its original size
+            Drawing a rectangle with width 10 and height 20
+            Drawing a circle with radius 7
+            Resizing the circle to twice its original radius
+            Drawing a circle with radius 14
+        </code>
+    </pre>
+</body>
+</html>

@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.io.BufferedReader;
+            import java.io.InputStreamReader;
+            import java.net.URL;
+            import java.util.HashSet;
+            import java.util.Set;
+            import java.util.concurrent.ExecutorService;
+            import java.util.concurrent.Executors;
+            import java.util.regex.Matcher;
+            import java.util.regex.Pattern;
+            
+            public class ConcurrentWebCrawler {
+                private static final int MAX_THREADS = 10;  // Maximum number of threads
+                private static final Set&lt;String&gt; visitedUrls = new HashSet&lt;&gt;();  // To avoid re-visiting URLs
+                private static final ExecutorService executor = Executors.newFixedThreadPool(MAX_THREADS);  // Thread pool
+            
+                public static void main(String[] args) {
+                    String startUrl = "http://example.com";
+                    crawl(startUrl);
+                    executor.shutdown();  // Shutdown the executor after completing tasks
+                }
+            
+                public static void crawl(String url) {
+                    if (visitedUrls.contains(url)) return;  // Skip if URL is already visited
+                    visitedUrls.add(url);  // Mark this URL as visited
+            
+                    executor.execute(() -&gt; {
+                        System.out.println("Crawling URL: " + url);
+                        Set&lt;String&gt; links = getLinks(url);
+            
+                        // For each extracted link, submit a new crawl task if it's not already visited
+                        for (String link : links) {
+                            if (!visitedUrls.contains(link)) {
+                                crawl(link);
+                            }
+                        }
+                    });
+                }
+            
+                // Method to fetch links from the page
+                public static Set&lt;String&gt; getLinks(String urlString) {
+                    Set&lt;String&gt; links = new HashSet&lt;&gt;();
+                    try {
+                        URL url = new URL(urlString);
+                        BufferedReader reader = new BufferedReader(new InputStreamReader(url.openStream()));
+            
+                        String line;
+                        String regex = "http[s]?://(\\w+\\.)*(\\w+)";  // Regex to find URLs
+                        Pattern pattern = Pattern.compile(regex);
+            
+                        while ((line = reader.readLine()) != null) {
+                            Matcher matcher = pattern.matcher(line);
+                            while (matcher.find()) {
+                                String foundUrl = matcher.group();
+                                links.add(foundUrl);
+                            }
+                        }
+                        reader.close();
+                    } catch (Exception e) {
+                        System.out.println("Failed to crawl URL: " + urlString + " - " + e.getMessage());
+                    }
+                    return links;
+                }
+            }
+            
+            
+            </code> 
+    </pre>
+</body>
+</html>

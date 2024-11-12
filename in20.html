@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            
+// Define the abstract class Shape3D
+abstract class Shape3D {
+    // Abstract method to calculate the volume of the 3D shape
+    public abstract double calculateVolume();
+
+    // Abstract method to calculate the surface area of the 3D shape
+    public abstract double calculateSurfaceArea();
+}
+
+// Define the Sphere class that extends Shape3D
+class Sphere extends Shape3D {
+    private double radius;
+
+    // Constructor to initialize the radius of the sphere
+    public Sphere(double radius) {
+        this.radius = radius;
+    }
+
+    // Implement the calculateVolume method for Sphere
+    @Override
+    public double calculateVolume() {
+        return (4.0 / 3) * Math.PI * Math.pow(radius, 3);
+    }
+
+    // Implement the calculateSurfaceArea method for Sphere
+    @Override
+    public double calculateSurfaceArea() {
+        return 4 * Math.PI * Math.pow(radius, 2);
+    }
+
+    // Getter for radius
+    public double getRadius() {
+        return radius;
+    }
+}
+
+// Define the Cube class that extends Shape3D
+class Cube extends Shape3D {
+    private double sideLength;
+
+    // Constructor to initialize the side length of the cube
+    public Cube(double sideLength) {
+        this.sideLength = sideLength;
+    }
+
+    // Implement the calculateVolume method for Cube
+    @Override
+    public double calculateVolume() {
+        return Math.pow(sideLength, 3);
+    }
+
+    // Implement the calculateSurfaceArea method for Cube
+    @Override
+    public double calculateSurfaceArea() {
+        return 6 * Math.pow(sideLength, 2);
+    }
+
+    // Getter for side length
+    public double getSideLength() {
+        return sideLength;
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create a Sphere object with radius 5
+        Shape3D sphere = new Sphere(5);
+        System.out.println("Sphere:");
+        System.out.println("Radius: " + ((Sphere) sphere).getRadius());
+        System.out.println("Volume: " + sphere.calculateVolume());
+        System.out.println("Surface Area: " + sphere.calculateSurfaceArea());
+
+        // Create a Cube object with side length 4
+        Shape3D cube = new Cube(4);
+        System.out.println("\nCube:");
+        System.out.println("Side Length: " + ((Cube) cube).getSideLength());
+        System.out.println("Volume: " + cube.calculateVolume());
+        System.out.println("Surface Area: " + cube.calculateSurfaceArea());
+    }
+}
+
+
+OUTPUT
+
+
+Sphere:
+Radius: 5.0
+Volume: 523.5987755982989
+Surface Area: 314.1592653589793
+
+Cube:
+Side Length: 4.0
+Volume: 64.0
+Surface Area: 96.0
+        </code>
+    </pre>
+</body>
+</html>

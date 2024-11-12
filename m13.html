@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Th13 extends Thread {
+                public void run() {
+                    for(int i=0;i&lt;2;i++){
+                    System.out.println(Thread.currentThread().getName());
+                }}
+                public static void main(String[] args) {
+                    Th13 t1 = new Th13(); 
+                    Th13 t2 = new Th13();
+                    Th13 t3 = new Th13(); 
+                    Th13 t4 = new Th13();
+                    Th13 t5 = new Th13();
+                    t1.setName("A");
+                    t2.setName("B");
+                    t3.setName("C");
+                    t4.setName("D");
+                    t5.setName("E");      
+                    t2.start();
+                    try{
+                    t2.join();
+                    }
+                    catch(InterruptedException e){
+                    e.printStackTrace();
+                    }
+                    for(int i=0;i&lt;2;i++){
+             
+                    t3.yield();
+            
+                    System.out.println(Thread.currentThread().getName()+" In Control");
+                    }
+                    t1.start();
+                    t4.start();
+                    
+                    t5.start();
+                }}
+            
+            
+            OUTPUT
+            
+            
+            G:\COLLEGE WORK\ProjectPrograms\MultiThreading>javac Th13.java
+            
+            G:\COLLEGE WORK\ProjectPrograms\MultiThreading>java Th13
+            B
+            B
+            main In Control
+            main In Control
+            A
+            A
+            D
+            D
+            E
+            E
+            
+            </code> 
+    </pre>
+</body>
+</html>

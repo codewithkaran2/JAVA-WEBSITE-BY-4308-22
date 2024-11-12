@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.sql.*;
+class jdbc6{
+    public static void main(String[] args) throws ClassNotFoundException, SQLException {
+        Class.forName("com.mysql.jdbc.Driver");
+        Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu", "root", "root");
+        Statement stmt = conn.createStatement();
+        ResultSet rs = stmt.executeQuery("SELECT * FROM student");
+        while (rs.next()) {
+            int rollno = rs.getInt("rollno");
+            String name = rs.getString("name");
+            System.out.println("Roll No: " + rollno + ", Name: " + name);
+        }
+        rs.close();
+        stmt.close();
+        conn.close();
+    }
+}
+
+
+OUTPUT
+
+
+G:\COLLEGE WORK\JavaPrograms>javac jdbc6.java
+G:\COLLEGE WORK\JavaPrograms>java jdbc6
+
+Roll No: 1, Name: Madhu
+Roll No: 2, Name: monika
+Roll No: 4, Name: Savita
+        </code>
+    </pre>
+</body>
+</html>

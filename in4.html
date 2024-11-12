@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Employee {
+                private int salary; 
+                public Employee(int salary) {
+                    this.salary = salary;
+                }
+                void work() {
+                    System.out.println("Employee is working.");
+                }
+                int getSalary() {
+                    return salary;
+                }}
+            
+            class HRManager extends Employee {
+                public HRManager(int salary) {
+                    super(salary);
+                }
+                void work() {
+                    System.out.println("HR Manager is managing human resources.");
+                }
+                void addEmployee(String employeeName) {
+                    System.out.println("Adding employee: " + employeeName);
+                }
+            }
+            
+            class Main {
+             public static void main(String[] args) {
+                    Employee emp = new Employee(25000);
+                    emp.work();
+                    System.out.println("Employee salary: " + emp.getSalary());
+                    HRManager hrManager = new HRManager(70000);
+                    hrManager.work();
+                    System.out.println("HR Manager salary: " + hrManager.getSalary());
+                    hrManager.addEmployee("ABC");
+                }
+            }
+            
+            
+            OUTPUT
+            
+            
+            Employee is working.
+            Employee salary: 25000
+            HR Manager is managing human resources.
+            HR Manager salary: 70000
+            Adding employee: ABC
+        </code>
+    </pre>
+</body>
+</html>

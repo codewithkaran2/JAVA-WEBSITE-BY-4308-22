@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the Shape class
+class Shape {
+    // Default implementation for getPerimeter, can be overridden by subclasses
+    public double getPerimeter() {
+        // Default implementation, should be overridden by subclasses
+        return 0;
+    }
+
+    // Default implementation for getArea, can be overridden by subclasses
+    public double getArea() {
+        // Default implementation, should be overridden by subclasses
+        return 0;
+    }
+}
+
+// Define the Circle subclass
+class Circle extends Shape {
+    private double radius;
+
+    // Constructor
+    public Circle(double radius) {
+        this.radius = radius;
+    }
+
+    // Override the getPerimeter() method for Circle
+    @Override
+    public double getPerimeter() {
+        return 2 * Math.PI * radius;
+    }
+
+    // Override the getArea() method for Circle
+    @Override
+    public double getArea() {
+        return Math.PI * radius * radius;
+    }
+
+    // Getter for radius
+    public double getRadius() {
+        return radius;
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create an instance of Circle
+        Circle circle = new Circle(5.0); // Radius of 5 units
+
+        // Print out the perimeter and area of the circle
+        System.out.println("Circle with radius: " + circle.getRadius());
+        System.out.println("Perimeter: " + circle.getPerimeter());
+        System.out.println("Area: " + circle.getArea());
+    }
+}
+
+
+OUTPUT
+
+
+Circle with radius: 5.0
+Perimeter: 31.41592653589793
+Area: 78.53981633974483
+        </code>
+    </pre>
+</body>
+</html>

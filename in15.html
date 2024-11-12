@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the abstract class Animal
+abstract class Animal {
+    // Abstract method that must be implemented by subclasses
+    public abstract void sound();
+}
+
+// Define the Lion class that extends Animal
+class Lion extends Animal {
+    // Implement the abstract method sound()
+    @Override
+    public void sound() {
+        System.out.println("Lion roars");
+    }
+}
+
+// Define the Tiger class that extends Animal
+class Tiger extends Animal {
+    // Implement the abstract method sound()
+    @Override
+    public void sound() {
+        System.out.println("Tiger growls");
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create instances of Lion and Tiger
+        Animal myLion = new Lion();
+        Animal myTiger = new Tiger();
+
+        // Call the sound method on each instance
+        myLion.sound();  // Calls Lion's implementation of sound()
+        myTiger.sound(); // Calls Tiger's implementation of sound()
+    }
+}
+
+
+OUTPUT
+
+
+Lion roars
+Tiger growls
+        </code>
+    </pre>
+</body>
+</html>

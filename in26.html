@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            abstract class GeometricShape {
+                public abstract double area();
+                public abstract double perimeter();
+            }
+            
+            class Triangle extends GeometricShape {
+                private double base;
+                private double height;
+                private double side1;
+                private double side2;
+                private double side3;
+            
+                public Triangle(double base, double height, double side1, double side2, double side3) {
+                    this.base = base;
+                    this.height = height;
+                    this.side1 = side1;
+                    this.side2 = side2;
+                    this.side3 = side3;
+                }
+            
+                @Override
+                public double area() {
+                    return 0.5 * base * height;
+                }
+            
+                @Override
+                public double perimeter() {
+                    return side1 + side2 + side3;
+                }
+            }
+            
+            class Square extends GeometricShape {
+                private double side;
+            
+                public Square(double side) {
+                    this.side = side;
+                }
+            
+                @Override
+                public double area() {
+                    return side * side;
+                }
+            
+                @Override
+                public double perimeter() {
+                    return 4 * side;
+                }
+            }
+            class Inherit26{
+                public static void main(String[] args) {
+                    Triangle triangle = new Triangle(5, 6, 3, 4, 5);
+                    Square square = new Square(4);
+            
+                    System.out.println("Triangle area: " + triangle.area());
+                    System.out.println("Triangle perimeter: " + triangle.perimeter());
+            
+                    System.out.println("Square area: " + square.area());
+                    System.out.println("Square perimeter: " + square.perimeter());
+                }
+            }
+            
+            
+            
+            OUTPUT
+            
+            
+            Triangle area: 15.0
+            Triangle perimeter: 12.0
+            Square area: 16.0
+            Square perimeter: 16.0
+        </code>
+    </pre>
+</body>
+</html>

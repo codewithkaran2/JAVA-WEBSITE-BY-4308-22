@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            
+// Define the Parent class
+class Parent {
+    // Constructor of the Parent class
+    public Parent() {
+        System.out.println("Parent class constructor");
+    }
+
+    // Method in the Parent class
+    public void display() {
+        System.out.println("Display method of Parent class");
+    }
+}
+
+// Define the Child class that extends Parent
+class Child extends Parent {
+    // Constructor of the Child class
+    public Child() {
+        // Call the constructor of the Parent class
+        super();
+        System.out.println("Child class constructor");
+    }
+
+    // Overridden method in the Child class
+    @Override
+    public void display() {
+        // Call the display method of the Parent class
+        super.display();
+        System.out.println("Display method of Child class");
+    }
+
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create an instance of Child
+        Child child = new Child();
+
+        // Call the display method
+        child.display();
+
+    }
+}
+
+
+OUTPUT
+
+
+Parent class constructor
+Child class constructor
+Display method of Parent class
+Display method of Child class
+        </code>
+    </pre>
+</body>
+</html>

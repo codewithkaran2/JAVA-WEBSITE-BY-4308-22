@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            abstract class Bird {
+                public abstract void fly();
+                public abstract void makeSound();
+            }
+            
+            class Eagle extends Bird {
+                @Override
+                public void fly() {
+                    System.out.println("The eagle soars through the sky with its broad wings, gliding effortlessly on thermals.");
+                }
+            
+                @Override
+                public void makeSound() {
+                    System.out.println("The eagle lets out a loud, piercing cry: 'Kreee-kreee-kreee!'");
+                }
+            }
+            
+            class Hawk extends Bird {
+                @Override
+                public void fly() {
+                    System.out.println("The hawk dives and swoops with incredible agility, its sharp eyes scanning the ground below for prey.");
+                }
+            
+                @Override
+                public void makeSound() {
+                    System.out.println("The hawk emits a high-pitched, screeching call: 'Kee-kee-kee!'");
+                }
+            }
+            
+            class Inherit25{
+                public static void main(String[] args) {
+                    Eagle eagle = new Eagle();
+                    Hawk hawk = new Hawk();
+            
+                    eagle.fly();
+                    eagle.makeSound();
+            
+                    hawk.fly();
+                    hawk.makeSound();
+                }
+            }
+            
+            
+            OUTPUT
+            
+            
+            The eagle soars through the sky with its broad wings, gliding effortlessly on thermals.
+            The eagle lets out a loud, piercing cry: 'Kreee-kreee-kreee!'
+            The hawk dives and swoops with incredible agility, its sharp eyes scanning the ground below for prey.
+            The hawk emits a high-pitched, screeching call: 'Kee-kee-kee!'
+        </code>
+    </pre>
+</body>
+</html>

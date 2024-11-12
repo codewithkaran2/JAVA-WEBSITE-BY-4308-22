@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Airplane {
+                private String flightNumber;
+                private String destination;
+                private String departureTime;
+                private boolean isDelayed;
+            
+                // Constructor
+            public Airplane(String flightNumber, String destination, String departureTime) {
+                    this.flightNumber = flightNumber;
+                    this.destination = destination;
+                    this.departureTime = departureTime;
+                    this.isDelayed = false;
+                }
+            
+                // Getters
+                public String getFlightNumber() {
+                    return flightNumber;
+                }
+            
+                public String getDestination() {
+                    return destination;
+                }
+            
+                public String getDepartureTime() {
+                    return departureTime;
+                }
+            
+                public boolean isDelayed() {
+                    return isDelayed;
+                }
+            
+                // Method to check flight status
+                public void checkFlightStatus() {
+                    if (isDelayed) {
+                        System.out.println("Flight " + flightNumber + " to " + destination + " is delayed.");
+                    } else {
+                        System.out.println("Flight " + flightNumber + " to " + destination + " is on schedule.");
+                    }
+                }
+            
+                // Method to delay flight
+                public void delayFlight() {
+                    isDelayed = true;
+                    System.out.println("Flight " + flightNumber + " to " + destination + " has been delayed.");
+                }
+            
+                // Method to print flight details
+                public void printFlightDetails() {
+                    System.out.println("Flight Number: " + flightNumber);
+                    System.out.println("Destination: " + destination);
+                    System.out.println("Departure Time: " + departureTime);
+                    checkFlightStatus();
+                }
+            }
+            
+            class I {
+                public static void main(String[] args) {
+                    Airplane flight = new Airplane("UA123", "New York", "10:00 AM");
+            
+                    // Print flight details
+                    flight.printFlightDetails();
+            
+                    // Delay flight
+                    flight.delayFlight();
+            
+                    // Print flight details again
+                    flight.printFlightDetails();
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Flight Number: UA123
+            Destination: New York
+            Departure Time: 10:00 AM
+            Flight UA123 to New York is on schedule.
+            Flight UA123 to New York has been delayed.
+            Flight Number: UA123
+            Destination: New York
+            Departure Time: 10:00 AM
+            Flight UA123 to New York is delayed.
+            
+        </code>
+    </pre>
+</body>
+</html>

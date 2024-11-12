@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            class Shape {
+                int getArea(){
+                        return 0;
+                    }
+                }
+                class Rectangle extends Shape {
+                    private int length;
+                    private int width;
+                    Rectangle(int length, int width) {
+                        this.length = length;
+                        this.width = width;
+                    }
+                  int getArea() {
+                        return length * width;
+                    }
+                
+                    }
+                class Main{
+                public static void main(String[] args) {
+                Shape shape=new Shape();
+                System.out.println("The area of Shape is : "+shape.getArea());
+                Rectangle rectangle = new Rectangle(5, 3);
+                System.out.println("The area of the rectangle is: "+ rectangle.getArea());
+                    }}	
+                
+                OUTPUT
+                
+                
+                The area of Shape is : 0
+                The area of the rectangle is: 15
+        </code>
+    </pre>
+</body>
+</html>

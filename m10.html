@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+            class Th10 extends Thread{
+                public void run() {
+            System.out.println("Thread : "+Thread.currentThread().getName()+" Priority  "+Thread.currentThread().getPriority());
+                }
+                public static void main(String[] args) {
+                    Th10 t1 = new Th10();
+                    t1.start();
+                    t1.setName("ABC");
+                    t1.setPriority(2);
+                    Th10 t2 = new Th10();
+                    t2.start();
+                    t2.setName("XYZ");
+                    t2.setPriority(3);
+                    Th10 t3 = new Th10();
+                    t3.start();
+                    t3.setPriority(1);
+                    t3.setName("PQR");
+                }}
+            
+            
+            OUTPUT
+            
+            
+            G:\COLLEGE WORK\ProjectPrograms\MultiThreading>javac Th10.java
+            
+            G:\COLLEGE WORK\ProjectPrograms\MultiThreading>java Th10
+            Thread : ABC Priority  2
+            Thread : PQR Priority  1
+            Thread : XYZ Priority  3
+            </code> 
+    </pre>
+</body>
+</html>

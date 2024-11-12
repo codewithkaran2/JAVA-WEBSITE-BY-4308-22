@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+
+
+            abstract class Shape {
+                public abstract double calculateArea();
+                public abstract double calculatePerimeter();
+            }
+            
+            class Rectangle extends Shape {
+                private double length;
+                private double width;
+            
+                public Rectangle(double length, double width) {
+                    this.length = length;
+                    this.width = width;
+                }
+            
+                @Override
+                public double calculateArea() {
+                    return length * width;
+                }
+            
+                @Override
+                public double calculatePerimeter() {
+                    return 2 * (length + width);
+                }
+            }
+            
+            class Circle extends Shape {
+                private double radius;
+            
+                public Circle(double radius) {
+                    this.radius = radius;
+                }
+            
+                @Override
+                public double calculateArea() {
+                    return Math.PI * radius * radius;
+                }
+            
+                @Override
+                public double calculatePerimeter() {
+                    return 2 * Math.PI * radius;
+                }
+            }
+            
+            class Triangle extends Shape {
+                private double base;
+                private double height;
+            
+                public Triangle(double base, double height) {
+                    this.base = base;
+                    this.height = height;
+                }
+            
+                @Override
+                public double calculateArea() {
+                    return 0.5 * base * height;
+                }
+            
+                @Override
+                public double calculatePerimeter() {
+                    // Assuming an equilateral triangle
+                    return 3 * base;
+                }
+            }
+            class J {
+                public static void main(String[] args) {
+                    Rectangle rectangle = new Rectangle(5, 10);
+                    Circle circle = new Circle(4);
+                    Triangle triangle = new Triangle(6, 8);
+            
+                    System.out.println("Rectangle Area: " + rectangle.calculateArea());
+                    System.out.println("Rectangle Perimeter: " + rectangle.calculatePerimeter());
+            
+                    System.out.println("Circle Area: " + circle.calculateArea());
+                    System.out.println("Circle Perimeter: " + circle.calculatePerimeter());
+            
+                    System.out.println("Triangle Area: " + triangle.calculateArea());
+                    System.out.println("Triangle Perimeter: " + triangle.calculatePerimeter());
+                }
+            }
+            
+            OUTPUT
+            
+            
+            Rectangle Area: 50.0
+            Rectangle Perimeter: 30.0
+            Circle Area: 50.26548245743669
+            Circle Perimeter: 25.132741228718345
+            Triangle Area: 24.0
+            Triangle Perimeter: 18.0
+        </code>
+    </pre>
+</body>
+</html>

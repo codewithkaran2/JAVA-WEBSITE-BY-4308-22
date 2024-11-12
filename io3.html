@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.util.InputMismatchException;
+import java.util.Scanner;
+
+class IO3 {
+public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            try {
+                // Prompt the user to enter an integer
+                System.out.print("Enter an integer: ");
+                
+                // Read the integer from the user
+                int userInput = scanner.nextInt();
+                
+                // Output the integer entered by the user
+                System.out.println("You entered: " + userInput);
+                
+                // Exit the loop if input is valid
+                break;
+            } catch (InputMismatchException e) {
+                // Handle invalid input (not an integer)
+                System.out.println("Invalid input. Please enter a valid integer.");
+                
+                // Clear the invalid input
+                scanner.next(); // This is important to clear the scanner's buffer
+            }
+        }
+        
+        // Close the Scanner object
+        scanner.close();
+    }
+}
+
+
+OUTPUT
+
+
+G:\COLLEGE WORK\ProjectPrograms\InputOutput>javac IO3.java
+G:\COLLEGE WORK\ProjectPrograms\InputOutput>java IO3
+Enter an integer: a
+Invalid input. Please enter a valid integer.
+Enter an integer: b
+Invalid input. Please enter a valid integer.
+Enter an integer: 9
+You entered: 9
+        </code>
+    </pre>
+</body>
+</html>

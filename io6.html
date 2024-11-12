@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.util.InputMismatchException;
+import java.util.Scanner;
+class IO6 {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            try {
+                // Prompt the user to enter a boolean value
+                System.out.print("Enter a boolean (true/false): ");
+                
+                // Read the boolean from the user
+                boolean userInput = scanner.nextBoolean();
+                
+                // Output the boolean entered by the user
+                System.out.println("You entered: " + userInput);
+                
+                // Exit the loop if input is valid
+                break;
+            } catch (InputMismatchException e) {
+                // Handle invalid input (not true/false)
+                System.out.println("Invalid input. Please enter 'true' or 'false'.");
+                
+                // Clear the invalid input
+                scanner.next(); // This is important to clear the scanner's buffer
+            }
+        }
+        
+        // Close the Scanner object
+        scanner.close();
+    }
+}
+
+
+OUTPUT
+
+
+G:\COLLEGE WORK\ProjectPrograms\InputOutput>javac IO6.java
+
+G:\COLLEGE WORK\ProjectPrograms\InputOutput>java IO6
+Enter a boolean (true/false): false
+You entered: false
+
+G:\COLLEGE WORK\ProjectPrograms\InputOutput>java IO6
+Enter a boolean (true/false): a
+Invalid input. Please enter 'true' or 'false'.
+Enter a boolean (true/false): 5
+Invalid input. Please enter 'true' or 'false'.
+Enter a boolean (true/false): true
+You entered: true
+        </code>
+    </pre>
+</body>
+</html>

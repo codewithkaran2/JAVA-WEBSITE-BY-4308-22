@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            
+abstract class Person {
+    public abstract void eat();
+    public abstract void exercise();
+}
+class Athlete extends Person {
+    @Override
+    public void eat() {
+        System.out.println("Eating a healthy meal with plenty of protein to fuel my workout.");
+    }
+
+    @Override
+    public void exercise() {
+        System.out.println("Going for a 5-mile run and doing a strength training session.");
+    }
+}
+class LazyPerson extends Person {
+    @Override
+    public void eat() {
+        System.out.println("Grabbing a quick snack, probably something unhealthy like chips or cookies.");
+    }
+
+    @Override
+    public void exercise() {
+        System.out.println("Maybe taking a short walk to the fridge and back, but that's about it.");
+    }
+}
+class Inherit22{
+    public static void main(String[] args) {
+        Athlete athlete = new Athlete();
+        LazyPerson lazyPerson = new LazyPerson();
+
+        athlete.eat();
+        athlete.exercise();
+
+        lazyPerson.eat();
+        lazyPerson.exercise();
+    }
+}
+
+
+
+OUTPUT
+
+
+Eating a healthy meal with plenty of protein to fuel my workout.
+Going for a 5-mile run and doing a strength training session.
+Grabbing a quick snack, probably something unhealthy like chips or cookies.
+Maybe taking a short walk to the fridge and back, but that's about it.
+
+        </code>
+    </pre>
+</body>
+</html>

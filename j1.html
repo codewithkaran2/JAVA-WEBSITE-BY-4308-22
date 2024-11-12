@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.sql.*;
+class jdbc1 {
+    public static void main(String[] args) {
+        try {
+            Class.forName("com.mysql.jdbc.Driver");
+            System.out.println("MySQL JDBC driver loaded successfully!");
+        } catch (ClassNotFoundException e) {
+            System.out.println("Error loading MySQL JDBC driver: " + e.getMessage());
+            return;
+        }
+try(Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/madhu","root","root")){
+            System.out.println("Connected to the database successfully!");
+        } catch (SQLException e) {
+            System.out.println("Error connecting to the database: " + e.getMessage());
+        }}}
+
+
+OUTPUT
+
+
+G:\COLLEGE WORK\JavaPrograms>javac jdbc1.java
+G:\COLLEGE WORK\JavaPrograms>java jdbc1
+
+MySQL JDBC driver loaded successfully!
+Connected to the database successfully!
+
+        </code>
+    </pre>
+</body>
+</html>

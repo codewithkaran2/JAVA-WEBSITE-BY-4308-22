@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            import java.util.InputMismatchException;
+import java.util.Scanner;
+class IO7 {
+    public static void main(String[] args) {
+        // Create a Scanner object to read input from the user
+        Scanner scanner = new Scanner(System.in);
+        
+        while (true) {
+            try {
+                // Prompt the user to enter a short integer
+                System.out.print("Enter a short integer: ");
+                
+                // Read the short integer from the user
+                short userInput = scanner.nextShort();
+                
+                // Output the short integer entered by the user
+                System.out.println("You entered: " + userInput);
+                
+                // Exit the loop if input is valid
+                break;
+            } catch (InputMismatchException e) {
+                // Handle invalid input (not a short integer)
+                System.out.println("Invalid input. Please enter a valid short integer.");
+                
+                // Clear the invalid input
+                scanner.next(); // This is important to clear the scanner's buffer
+            }
+        }
+        
+        // Close the Scanner object
+        scanner.close();
+    }
+}
+
+
+OUTPUT
+
+
+G:\COLLEGE WORK\ProjectPrograms\InputOutput>javac IO7.java
+
+G:\COLLEGE WORK\ProjectPrograms\InputOutput>java IO7
+Enter a short integer: j
+Invalid input. Please enter a valid short integer.
+Enter a short integer: q
+Invalid input. Please enter a valid short integer.
+Enter a short integer: 8
+You entered: 8
+        </code>
+    </pre>
+</body>
+</html>

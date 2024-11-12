@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the abstract class BankAccount
+abstract class BankAccount {
+    protected double balance;
+
+    // Abstract method to deposit money into the account
+    public abstract void deposit(double amount);
+
+    // Abstract method to withdraw money from the account
+    public abstract void withdraw(double amount);
+
+    // Method to get the current balance
+    public double getBalance() {
+        return balance;
+    }
+}
+
+// Define the SavingsAccount class that extends BankAccount
+class SavingsAccount extends BankAccount {
+    private double interestRate;
+
+    // Constructor to initialize balance and interest rate
+    public SavingsAccount(double initialBalance, double interestRate) {
+        this.balance = initialBalance;
+        this.interestRate = interestRate;
+    }
+
+    // Implement the deposit method for SavingsAccount
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited $" + amount + " into Savings Account");
+        } else {
+            System.out.println("Deposit amount must be positive");
+        }
+    }
+
+    // Implement the withdraw method for SavingsAccount
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && amount <= balance) {
+            balance -= amount;
+            System.out.println("Withdrew $" + amount + " from Savings Account");
+        } else if (amount > balance) {
+            System.out.println("Insufficient funds for withdrawal");
+        } else {
+            System.out.println("Withdrawal amount must be positive");
+        }
+    }
+
+    // Method to calculate interest earned
+    public double calculateInterest() {
+        return balance * interestRate / 100;
+    }
+}
+
+// Define the CurrentAccount class that extends BankAccount
+class CurrentAccount extends BankAccount {
+    private double overdraftLimit;
+
+    // Constructor to initialize balance and overdraft limit
+    public CurrentAccount(double initialBalance, double overdraftLimit) {
+        this.balance = initialBalance;
+        this.overdraftLimit = overdraftLimit;
+    }
+
+    // Implement the deposit method for CurrentAccount
+    @Override
+    public void deposit(double amount) {
+        if (amount > 0) {
+            balance += amount;
+            System.out.println("Deposited $" + amount + " into Current Account");
+        } else {
+            System.out.println("Deposit amount must be positive");
+        }
+    }
+
+    // Implement the withdraw method for CurrentAccount
+    @Override
+    public void withdraw(double amount) {
+        if (amount > 0 && (balance - amount) >= -overdraftLimit) {
+            balance -= amount;
+            System.out.println("Withdrew $" + amount + " from Current Account");
+        } else if ((balance - amount) < -overdraftLimit) {
+            System.out.println("Withdrawal exceeds overdraft limit");
+        } else {
+            System.out.println("Withdrawal amount must be positive");
+        }
+    }
+}
+
+// Main class to test the implementation
+class Main {
+    public static void main(String[] args) {
+        // Create a SavingsAccount object
+        SavingsAccount mySavings = new SavingsAccount(1000.0, 5.0); // Initial balance and interest rate
+        System.out.println("Savings Account Balance: $" + mySavings.getBalance());
+        mySavings.deposit(500.0);
+        System.out.println("Savings Account Balance: $" + mySavings.getBalance());
+        mySavings.withdraw(200.0);
+        System.out.println("Savings Account Balance: $" + mySavings.getBalance());
+        System.out.println("Interest Earned: $" + mySavings.calculateInterest());
+
+        // Create a CurrentAccount object
+        CurrentAccount myCurrent = new CurrentAccount(500.0, 200.0); // Initial balance and overdraft limit
+        System.out.println("\nCurrent Account Balance: $" + myCurrent.getBalance());
+        myCurrent.deposit(300.0);
+        System.out.println("Current Account Balance: $" + myCurrent.getBalance());
+        myCurrent.withdraw(700.0);
+        System.out.println("Current Account Balance: $" + myCurrent.getBalance());
+        myCurrent.withdraw(100.0); // Test overdraft limit
+        System.out.println("Current Account Balance: $" + myCurrent.getBalance());
+    }
+}
+
+
+OUTPUT
+
+
+Savings Account Balance: $1000.0
+Deposited $500.0 into Savings Account
+Savings Account Balance: $1500.0
+Withdrew $200.0 from Savings Account
+Savings Account Balance: $1300.0
+Interest Earned: $65.0
+
+Current Account Balance: $500.0
+Deposited $300.0 into Current Account
+Current Account Balance: $800.0
+Withdrew $700.0 from Current Account
+Current Account Balance: $100.0
+Withdrew $100.0 from Current Account
+Current Account Balance:  $0.0
+        </code>
+    </pre>
+</body>
+</html>

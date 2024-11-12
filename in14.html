@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <pre>
+        <code>
+            // Define the base class
+class Animal {
+    // Method in the base class
+    public void makeSound() {
+        System.out.println("Animal makes a sound");
+    }
+}
+
+// Define the subclass Cat
+class Cat extends Animal {
+    // Overridden method in the Cat class
+    @Override
+    public void makeSound() {
+        System.out.println("Cat meows");
+    }
+}
+// Main class to test dynamic method dispatch
+class Main {
+    public static void main(String[] args) {
+        // Create instances of Animal, Cat
+        Animal myAnimal;
+        
+        myAnimal = new Cat(); // Reference variable of type Animal pointing to a Cat object
+        myAnimal.makeSound(); // Calls the Cat's overridden method
+// Calls the Dog's overridden method
+    }
+}
+
+
+OUTPUT
+
+
+Cat meows
+        </code>
+    </pre>
+</body>
+</html>
